@@ -1,5 +1,9 @@
 # docker-swarm
 
-docker network create -d overlay monitor
+**Initiate networks**
+    
+    docker network create -d overlay monitor
 
-docker network create -d overlay proxy
+    docker network create -d overlay proxy
+
+
