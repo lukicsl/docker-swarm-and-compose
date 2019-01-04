@@ -10,9 +10,9 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./timezone:/etc/timezone:ro
-      - /swarm/volumes/openhab/config:/openhab/conf
-      - /swarm/volumes/openhab/persist:/openhab/userdata/persistence
-      - /swarm/volumes/openhab/logs:/openhab/userdata/logs
+      - ./openhab_addons:/openhab/addons
+      - ./openhab_conf:/openhab/conf
+      - ./openhab_userdata:/openhab/userdata
       - ./backup:/backups
     networks:
       - openhab_net
