@@ -2,7 +2,7 @@ hversion: "3"
 
 services:
 
-  grafana:
+  openhab:
     image: openhab/openhab:2.4.0
     networks:
       - monitor
