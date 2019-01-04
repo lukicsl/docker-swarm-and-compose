@@ -1,0 +1,53 @@
+version: "3"
+
+services:
+
+  ha-proxy:
+    image: lukics/haproxy-exporter:linux-arm32v7-latest
+    networks:
+      - proxy
+      - monitor
+    deploy:
+      labels:
+        - com.df.notify=true
+        - com.df.scrapePort=9101
+    command: --haproxy.scrape-uri="http://admin:admin@proxy/admin?stats;csv"
+
+  cadvisor:
+    image: lukics/cadvisor:linux-arm32v7-latest
+    networks:
+      - monitor
+    volumes:
+      - /:/rootfs
+      - /var/run:/var/run
+      - /sys:/sys
+      - /var/lib/docker:/var/lib/docker
+    deploy:
+      mode: global
+      labels:
+        - com.df.notify=true
+        - com.df.scrapePort=8080
+
+  node-exporter:
+    image: lukics/node-exporter:linux-arm32v7-latest
+    networks:
+      - monitor
+    environment:
+      - HOST_HOSTNAME=/etc/host_hostname
+    volumes:
+      - /proc:/host/proc
+      - /sys:/host/sys
+      - /:/rootfs
+      - /etc/hostname:/etc/host_hostname
+    deploy:
+      mode: global
+      labels:
+        - com.df.notify=true
+        - com.df.scrapePort=9100
+    command: '--path.procfs="/host/proc" --path.sysfs="/host/sys" --collector.filesystem.ignored-mount-points="^/(sys|proc|dev|host|etc)($$|/)" --collector.textfile.directory="/etc/node-exporter/" --collector.conntrack --collector.diskstats --collector.entropy --collector.filefd --collector.filesystem --collector.loadavg --collector.mdadm --collector.meminfo --collector.netdev --collector.netstat --collector.stat --collector.textfile --collector.time --collector.vmstat --collector.ipvs'
+
+networks:
+  monitor:
+    external: true
+  proxy:
+    external: true
