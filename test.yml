@@ -2,7 +2,7 @@ version: '3'
 
 services:
   openhab:
-    image: "openhab/openhab:2.4.0
+    image: "openhab/openhab:2.4.0"
     restart: always
     ports:
       - "8080:8080"
