@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  openhab:
+    image: "openhab/openhab:2.2.0-armhf-debian"
+    restart: always
+    ports:
+      - "80:8080"
+      - "443:8443"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./timezone:/etc/timezone:ro
+      - /swarm/volumes/openhab/config:/openhab/conf
+      - /swarm/volumes/openhab/persist:/openhab/userdata/persistence
+      - /swarm/volumes/openhab/logs:/openhab/userdata/logs
+      - ./backup:/backups
+    networks:
+      - openhab_net
+
+networks:
+  openhab_net:
