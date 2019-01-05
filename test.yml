@@ -9,7 +9,7 @@ services:
       - "8443:8443"
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /tmp/oh/timezone:/etc/timezone:ro
+      - /etc/timezone:/etc/timezone:ro
       - /tmp/oh/openhab_addons:/openhab/addons
       - /tmp/oh/openhab_conf:/openhab/conf
       - /tmp/oh/openhab_userdata:/openhab/userdata
