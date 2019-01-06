@@ -25,6 +25,25 @@ services:
         - com.df.servicePath=/openhab/
         - com.df.reqPathSearch=/openhab
         - com.df.port=8080
+  
+  frontail:
+    image: lukics/frontail:linux-arm32v7-latest
+    networks:
+      - monitor
+      - proxy
+    volumes:
+      - /tmp/oh/openhab_userdata:/openhab/userdata
+    command:
+      - /openhab/userdata/logs/events.log  
+      - /openhab/userdata/logs/openhab.log
+    deploy:
+      labels:
+        - com.df.notify=true
+        - com.df.distribute=true
+        - com.df.servicePath=/oh-log/
+        - com.df.reqPathSearch=/oh-log
+        - com.df.port=9001
+
 
 networks:
   monitor:
