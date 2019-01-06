@@ -34,14 +34,14 @@ services:
     volumes:
       - /tmp/oh/openhab_userdata:/openhab/userdata
     command:
-      - --url-path /log
+      - --url-path /oh-log
       - /openhab/userdata/logs/events.log  
       - /openhab/userdata/logs/openhab.log
     deploy:
       labels:
         - com.df.notify=true
         - com.df.distribute=true
-        - com.df.servicePath=/log
+        - com.df.servicePath=/oh-log
         - com.df.port=9001
 
 
