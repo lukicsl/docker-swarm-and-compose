@@ -10,6 +10,7 @@ services:
     volumes:
       - /tmp/oh/openhab_userdata:/openhab/userdata
     command:
+      - --url-path /frontail
       - /openhab/userdata/logs/events.log  
       - /openhab/userdata/logs/openhab.log
     deploy:
