@@ -12,6 +12,7 @@ services:
       - LC_DIR=/datavol
     volumes:
       - /datavol:/datavol
+      - /etc/hostname:/etc/hostname-host
     deploy:
       labels:
         - com.df.notify=true
