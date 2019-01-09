@@ -3,6 +3,7 @@ version: "3"
 services:
 
   glustercl:
+    privileged: true
     image: lukics/glustercl:armv7
     networks:
       - monitor
