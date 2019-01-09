@@ -3,7 +3,7 @@ version: "3"
 services:
 
   glustercl:
-    image: lukics/frontail:linux-arm32v7-latest
+    image: lukics/glustercl:armv7
     networks:
       - monitor
     environment:
