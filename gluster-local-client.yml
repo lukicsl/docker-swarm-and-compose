@@ -13,9 +13,7 @@ services:
       - GVOL=vol
       - LC_DIR=/mount-on-container
     volumes:
-      - type: volume
-        source: /etc/hostname
-        target: /etc/hostname-host
+      - /etc/hostname:/etc/hostname-host
       - type: bind
         source: /mnt-on-host
         target: /mount-on-container
@@ -28,7 +26,3 @@ services:
 networks:
   monitor:
     external: true
-    
-volumes:
-  hostname:
-    
