@@ -11,14 +11,14 @@ services:
     environment:
       - LC_SRV=vevedock-02
       - GVOL=vol
-      - LC_DIR=/mnt4711
+      - LC_DIR=/mount-on-container
     volumes:
       - type: volume
         source: /etc/hostname
         target: /etc/hostname-host
       - type: bind
-        source: /mnt4712
-        target: /mnt4711
+        source: /mnt-on-host
+        target: /mount-on-container
         bind:
           propagation: rshared    
     labels:
