@@ -10,7 +10,7 @@ services:
       - monitor
     environment:
       # local container server. set automatically if omitten to host running container
-      - LC_SRV=hostname
+      - LC_SRV
       # gluster volume
       - GVOL=vol
       # local directory on container $GVOL sould be mounted
