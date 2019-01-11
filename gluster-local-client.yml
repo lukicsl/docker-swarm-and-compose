@@ -20,8 +20,8 @@ services:
     volumes:
       - /etc/hostname:/etc/hostname-host
       - type: bind
-        source: $LH_DIR
-        target: $LC_DIR
+        source: ${LH_DIR}
+        target: ${LC_DIR}
         bind:
           propagation: rshared    
     labels:
