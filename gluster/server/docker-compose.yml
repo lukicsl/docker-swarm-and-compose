@@ -1,12 +1,10 @@
 version: '3.3'
 services:
-    glustercl:
+    glusterfs:
         privileged: true
         restart: always
         image: 'lukics/glusterfs:armv7'
-        container_name: glusterfs-${HOSTNAME}
-        command:
-          - sleep 10000000
+        container_name: glusterfs
         networks:
             - monitor
             - glsnet
