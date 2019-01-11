@@ -29,3 +29,6 @@ networks:
   monitor:
     external: true
     
+volumes:
+  /etc/hostname:
+    
