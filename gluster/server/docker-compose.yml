@@ -29,7 +29,7 @@ networks:
         external: true
     glsnet:
         network_mode: "host"
-        
+
 # docker run -d --net=host --privileged --name gluster -v /data:/data 
 # docker run -d --net=host --privileged --name gluster -v /data:/data registry:5000/gluster
 # docker run --restart=always --name gfsc1 -v /bricks:/bricks -v /sys/fs/cgroup:/sys/fs/cgroup:ro --mount type=bind,source=/datavol,target=/datavol,bind-propagation=rshared -d --privileged=true --net=netgfs -v /dev/:/dev gluster/gluster-centos
