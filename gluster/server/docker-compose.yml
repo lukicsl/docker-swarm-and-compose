@@ -3,16 +3,23 @@ services:
     glustercl:
         privileged: true
         restart: always
-        image: 'lukics/glustercl:armv7'
+        image: 'lukics/glusterfs:armv7'
+        container_name: glusterfs
         networks:
             - monitor
+            - glsnet
         environment:
             - LC_SRV
             - GVOL
             - LC_DIR
             - LH_DIR
         volumes:
-            - '/etc/hostname:/etc/hostname-host'
+            - /bricks:/bricks
+            - /etc/glusterfs:/etc/glusterfs:z
+            - /var/lib/glusterd:/var/lib/glusterd:z
+            - /var/log/glusterfs:/var/log/glusterfs:z 
+            - /sys/fs/cgroup:/sys/fs/cgroup:ro
+            - /bricks:/bricks
             - {type: bind, source: '${LH_DIR}', target: '${LC_DIR}', bind: {propagation: rshared}}
         labels:
             - com.df.notify=true
@@ -20,7 +27,9 @@ services:
 networks:
     monitor:
         external: true
+    glsnet:
+        network_mode: "host"
         
 docker run -d --net=host --privileged --name gluster -v /data:/data 
 docker run -d --net=host --privileged --name gluster -v /data:/data registry:5000/gluster
-docker run --restart=always --name gfsc1 -v /bricks:/bricks -v /etc/glusterfs:/etc/glusterfs:z -v /var/lib/glusterd:/var/lib/glusterd:z -v /var/log/glusterfs:/var/log/glusterfs:z -v /sys/fs/cgroup:/sys/fs/cgroup:ro --mount type=bind,source=/datavol,target=/datavol,bind-propagation=rshared -d --privileged=true --net=netgfs -v /dev/:/dev gluster/gluster-centos
+docker run --restart=always --name gfsc1 -v /bricks:/bricks -v /sys/fs/cgroup:/sys/fs/cgroup:ro --mount type=bind,source=/datavol,target=/datavol,bind-propagation=rshared -d --privileged=true --net=netgfs -v /dev/:/dev gluster/gluster-centos
