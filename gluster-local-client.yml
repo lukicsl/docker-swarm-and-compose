@@ -10,7 +10,7 @@ services:
       - monitor
     environment:
       # local container server. set automatically if omitten to host running container
-#      - LC_SRV=vevedock-02
+      - LC_SRV=hostname
       # gluster volume
       - GVOL=vol
       # local directory on container $GVOL sould be mounted
