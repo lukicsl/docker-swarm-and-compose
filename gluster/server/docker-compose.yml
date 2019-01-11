@@ -1,0 +1,22 @@
+version: '3.3'
+services:
+    glustercl:
+        privileged: true
+        restart: always
+        image: 'lukics/glustercl:armv7'
+        networks:
+            - monitor
+        environment:
+            - LC_SRV
+            - GVOL
+            - LC_DIR
+            - LH_DIR
+        volumes:
+            - '/etc/hostname:/etc/hostname-host'
+            - {type: bind, source: '${LH_DIR}', target: '${LC_DIR}', bind: {propagation: rshared}}
+        labels:
+            - com.df.notify=true
+            - com.df.distribute=true
+networks:
+    monitor:
+        external: true
