@@ -6,7 +6,7 @@ services:
         image: 'lukics/glusterfs:armv7'
         container_name: glusterfs-${HOSTNAME}
         command:
-          - glusterd --no-daemon
+          - /usr/sbin/glusterd --no-daemon
         networks:
             - monitor
             - glsnet
