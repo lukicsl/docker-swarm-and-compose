@@ -9,14 +9,19 @@ services:
     networks:
       - monitor
     environment:
-      - LC_SRV=vevedock-02
+      # local container server. set automatically if omitten to host running container
+#      - LC_SRV=vevedock-02
+      # gluster volume
       - GVOL=vol
+      # local directory on container $GVOL sould be mounted
       - LC_DIR=/mount-on-container
+      # local directory on container host $LC_DIR sould be mounted
+      - LH_DIR=/mnt-on-host
     volumes:
       - /etc/hostname:/etc/hostname-host
       - type: bind
-        source: /mnt-on-host
-        target: /mount-on-container
+        source: $LH_DIR
+        target: $LC_DIR
         bind:
           propagation: rshared    
     labels:
