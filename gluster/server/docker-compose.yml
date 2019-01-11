@@ -3,11 +3,11 @@ services:
     glustercl:
         privileged: true
         restart: always
-        network_mode: "host"
         image: 'lukics/glusterfs:armv7'
         container_name: glusterfs
         networks:
             - monitor
+            - glsnet
         environment:
             - LC_SRV
             - GVOL
@@ -26,6 +26,8 @@ services:
             - com.df.distribute=true
 networks:
     monitor:
+        external: true
+    glsnet:
         external: true
         
 
