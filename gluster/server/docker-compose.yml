@@ -9,6 +9,7 @@ services:
             - monitor
             - glsnet
         environment:
+            - HOSTNAME
             - LC_SRV
             - GVOL
             - LC_DIR
