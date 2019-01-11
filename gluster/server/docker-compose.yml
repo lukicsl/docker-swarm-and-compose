@@ -5,7 +5,7 @@ services:
         restart: always
         image: 'lukics/glusterfs:armv7'
 #        command: tail -F anything
-        container_name: glusterfs
+#        container_name: glusterfs
         networks:
             - monitor
             - glsnet
