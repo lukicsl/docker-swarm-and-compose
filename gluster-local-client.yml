@@ -7,7 +7,7 @@ services:
         networks:
             - monitor
         environment:
-            - LC_SRV=$HOSTNAME
+            - LC_SRV
             - GVOL
             - LC_DIR
             - LH_DIR
