@@ -4,7 +4,7 @@ services:
         privileged: true
         restart: always
         image: 'lukics/glusterfs:armv7'
-        command: tail -F anything
+#        command: tail -F anything
         container_name: glusterfs
         networks:
             - monitor
