@@ -17,7 +17,7 @@ services:
         source: /mnt4711
         target: /mnt4711
         bind:
-          propagation: shared    
+          propagation: rshared    
     labels:
       - com.df.notify=true
       - com.df.distribute=true
