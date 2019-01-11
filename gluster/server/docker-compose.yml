@@ -18,7 +18,7 @@ services:
         volumes:
             - /bricks:/bricks
             - /etc/glusterfs:/etc/glusterfs:z
-            - /var/lib/glusterd:/var/lib/glusterd:z
+#            - /var/lib/glusterd:/var/lib/glusterd:z
 #            - /var/log/glusterfs:/var/log/glusterfs:z 
         labels:
             - com.df.notify=true
