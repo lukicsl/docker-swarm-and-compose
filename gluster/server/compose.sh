@@ -1,2 +1,2 @@
 export HOSTNAME
-docker-compose $1
+docker-compose $1 $2
