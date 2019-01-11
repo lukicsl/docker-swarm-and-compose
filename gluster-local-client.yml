@@ -11,14 +11,10 @@ services:
     networks:
       - monitor
     environment:
-      # local container server. set automatically if omitten to host running container
       - LC_SRV
-      # gluster volume
-      - GVOL=vol
-      # local directory on container $GVOL sould be mounted
-      - LC_DIR=/mount-on-container
-      # local directory on container host $LC_DIR sould be mounted
-      - LH_DIR=/mnt-on-host
+      - GVOL
+      - LC_DIR
+      - LH_DIR
     volumes:
       - /etc/hostname:/etc/hostname-host
       - type: bind
