@@ -18,10 +18,9 @@ services:
         target: /mnt4711
         bind:
           propagation: rshared
-    deploy:
-      labels:
-        - com.df.notify=true
-        - com.df.distribute=true
+    labels:
+      - com.df.notify=true
+      - com.df.distribute=true
 
 networks:
   monitor:
