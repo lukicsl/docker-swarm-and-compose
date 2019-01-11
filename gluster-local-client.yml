@@ -6,8 +6,6 @@ services:
     privileged: true
     restart: always
     image: lukics/glustercl:armv7
-    env_file:
-      - ./gluscli.env
     networks:
       - monitor
     volumes:
