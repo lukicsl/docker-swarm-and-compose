@@ -10,11 +10,6 @@ services:
       - ./gluscli.env
     networks:
       - monitor
-    environment:
-      - LC_SRV
-      - GVOL
-      - LC_DIR
-      - LH_DIR
     volumes:
       - /etc/hostname:/etc/hostname-host
       - type: bind
