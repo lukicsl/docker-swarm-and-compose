@@ -13,14 +13,20 @@ services:
       - GVOL=vol
       - LC_DIR=/mnt4711
     volumes:
-      - host_path: /mnt4711
-      container_path: /mnt4711
-      options: 
-      - "rw"
-      - "rshared"        
+      - shd:/mnt4711
+      
+    
     labels:
       - com.df.notify=true
       - com.df.distribute=true
+    
+volumes:
+  shd:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt4711    
 
 networks:
   monitor:
