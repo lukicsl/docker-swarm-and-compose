@@ -13,21 +13,15 @@ services:
       - GVOL=vol
       - LC_DIR=/mnt4711
     volumes:
-      - shd:/mnt4711
-      
+      - type: bind
+        source: /mnt4711
+        target: /mnt4711
+        bind-propagation: shared
     
     labels:
       - com.df.notify=true
       - com.df.distribute=true
     
-volumes:
-  shd:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: /mnt4711    
-
 networks:
   monitor:
     external: true
