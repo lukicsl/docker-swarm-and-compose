@@ -1,4 +1,10 @@
 #!/bin/bash
+
+if (whoami != root)
+  then echo "Please run as root"
+  exit
+fi
+
 mkdir /etc/glusterfs
 mkdir /var/lib/glusterd
 mkdir /var/log/glusterfs
