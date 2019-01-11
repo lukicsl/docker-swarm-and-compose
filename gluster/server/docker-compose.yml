@@ -3,11 +3,11 @@ services:
     glustercl:
         privileged: true
         restart: always
+        network_mode: "host"
         image: 'lukics/glusterfs:armv7'
         container_name: glusterfs
         networks:
             - monitor
-            - glsnet
         environment:
             - LC_SRV
             - GVOL
@@ -27,8 +27,7 @@ services:
 networks:
     monitor:
         external: true
-    glsnet:
-        network_mode: "host"
+        
 
 # docker run -d --net=host --privileged --name gluster -v /data:/data 
 # docker run -d --net=host --privileged --name gluster -v /data:/data registry:5000/gluster
