@@ -14,7 +14,7 @@ services:
       - LC_DIR=/mnt4711
     volumes:
       - type: bind
-        source: /mnt4711
+        source: /mnt4712
         target: /mnt4711
         bind:
           propagation: rshared    
