@@ -13,6 +13,9 @@ services:
       - GVOL=vol
       - LC_DIR=/mnt4711
     volumes:
+      - type: volume
+        source: /etc/hostname
+        target: /etc/hostname-host
       - type: bind
         source: /mnt4712
         target: /mnt4711
