@@ -30,5 +30,5 @@ networks:
     external: true
     
 volumes:
-  /etc/hostname:
+  hostname:
     
