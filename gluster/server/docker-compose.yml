@@ -5,6 +5,8 @@ services:
         restart: always
         image: 'lukics/glusterfs:armv7'
         container_name: glusterfs-${HOSTNAME}
+        command:
+          - glusterd --no-daemon
         networks:
             - monitor
             - glsnet
