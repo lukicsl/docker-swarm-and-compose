@@ -5,7 +5,7 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
  
-mkdir /etc/glusterfs
-mkdir /var/lib/glusterd
-mkdir /var/log/glusterfs
+mkdir -p /etc/glusterfs
+mkdir -p /var/lib/glusterd
+mkdir -p /var/log/glusterfs
 mkdir -p /bricks/brick1/gv0
