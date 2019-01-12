@@ -16,11 +16,11 @@ services:
             - LC_DIR
             - LH_DIR
         volumes:
-            - /bricks:/bricks
+            - /opt/gluster/bricks:/bricks
 #            - {type: bind, source: '/etc/glusterfs', target: '/etc', bind: {propagation: rshared}}
-            - /etc/glusterfs-backup:/etc/glusterfs:z
-            - /var/lib/glusterd:/var/lib/glusterd:z
-            - /var/log/glusterfs:/var/log/glusterfs:z 
+            - /opt/gluster/glusterfs:/etc/glusterfs:z
+            - /opt/gluster/glusterd:/var/lib/glusterd:z
+            - /opt/gluster/logs:/var/log/glusterfs:z 
         labels:
             - com.df.notify=true
             - com.df.distribute=true
