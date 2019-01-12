@@ -17,7 +17,7 @@ services:
             - LH_DIR
         volumes:
             - /bricks:/bricks
-            - {type: bind, source: '/etc/glusterd', target: '/etc', bind: {propagation: rshared}}
+            - {type: bind, source: '/etc/glusterfs', target: '/etc', bind: {propagation: rshared}}
             - /var/lib/glusterd:/var/lib/glusterd:z
             - /var/log/glusterfs:/var/log/glusterfs:z 
         labels:
