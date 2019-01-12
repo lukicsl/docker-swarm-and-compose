@@ -17,7 +17,7 @@ services:
             - LH_DIR
         volumes:
             - /bricks:/bricks
-            - /etc/glusterfs:/etc:z
+            - /etc/glusterfs:/etc
             - /var/lib/glusterd:/var/lib/glusterd:z
             - /var/log/glusterfs:/var/log/glusterfs:z 
         labels:
