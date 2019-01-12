@@ -18,7 +18,7 @@ services:
         volumes:
             - /bricks:/bricks
 #            - {type: bind, source: '/etc/glusterfs', target: '/etc', bind: {propagation: rshared}}
-            - /etc/glusterfs:/etc/glusterfs:z
+            - /etc/glusterfs:/etc:z
             - /var/lib/glusterd:/var/lib/glusterd:z
             - /var/log/glusterfs:/var/log/glusterfs:z 
         labels:
