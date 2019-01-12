@@ -6,7 +6,8 @@ services:
         image: 'lukics/glustercl:armv7'
         networks:
             - monitor
-            - glsnet        environment:
+            - glsnet        
+        environment:
             - LC_SRV=glusterfs-${HOSTNAME}
             - GVOL
             - LC_DIR
