@@ -4,7 +4,7 @@ services:
         privileged: true
         restart: always
         image: 'lukics/glusterfs:armv7'
-#        command: sleep 100000
+        command: sleep 100000
         container_name: glusterfs-${HOSTNAME}
         networks:
             - monitor
