@@ -9,9 +9,11 @@ services:
       - proxy
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /etc/timezone:/etc/timezone:ro
-      - glusvol:/openhab
-    environment:
+      - etc/timezone:/etc/timezone:ro
+      - /datavol/openhab/openhab_addons:/openhab/addons \
+      - /datavol/openhab/openhab_conf:/openhab/conf \
+      - /datavol/openhab/openhab_userdata:/openhab/userdata \
+     environment:
       - OPENHAB_HTTP_PORT=8080
       - OPENHAB_HTTPS_PORT=8443
       - EXTRA_JAVA_OPTS=-Duser.timezone=Europe/Berlin
