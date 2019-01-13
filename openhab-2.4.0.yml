@@ -4,8 +4,7 @@ services:
 
   openhab:
     image: openhab/openhab:2.4.0
-    stdin_open: true
-    tty: true
+    name: openhab
     networks:
       - monitor
       - proxy
