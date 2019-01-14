@@ -28,10 +28,12 @@ services:
         - com.df.servicePath.2=/
         - com.df.srcPort.2=9125
         - com.df.port.2=9125
+        - com.df.reqMode2=tcp
         - com.df.servicePath.3=/
         - com.df.srcPort.3=9126
         - com.df.port.3=9126
-  
+        - com.df.reqMode3=tcp
+ 
   frontail:
     image: lukics/frontail:linux-arm32v7-latest
     networks:
