@@ -22,11 +22,9 @@ services:
       labels:
         - com.df.notify=true
         - com.df.distribute=true
-        - com.df.servicePath.1=/openhab,/rest,/start,/habpanel,/habmin,/doc,/paperui
-        - com.df.reqPathSearchReplace.1=/openhab,/
-        - com.df.port.1=8080
-        - com.df.port.2=9125
-        - com.df.port.3=9126
+        - com.df.servicePath=/openhab,/rest,/start,/habpanel,/habmin,/doc,/paperui
+        - com.df.reqPathSearchReplace=/openhab,/
+        - com.df.port=8080
   
   frontail:
     image: lukics/frontail:linux-arm32v7-latest
