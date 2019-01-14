@@ -4,7 +4,9 @@ services:
 
   openhab:
     image: openhab/openhab:2.4.0
-    network_mode: "host"
+    networks:
+      - monitor
+      - proxy
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
@@ -22,3 +24,8 @@ services:
       - com.df.reqPathSearch=/openhab
       - com.df.port=8080
   
+networks:
+  monitor:
+    external: true
+  proxy:
+    external: true  
