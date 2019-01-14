@@ -22,7 +22,7 @@ services:
       labels:
         - com.df.notify=true
         - com.df.distribute=true
-        - com.df.servicePath=/openhab/
+        - com.df.servicePath=/openhab/,/rest/
         - com.df.reqPathSearchReplace=/openhab/,/:/rest/,/openhab/rest/
         - com.df.port=8080
   
