@@ -9,7 +9,6 @@ services:
       - proxy
     volumes:
       - /datavol/mosquitto:/mosquitto/config
-      - /datavol/mosquitto/log:/mosquitto/log    
     deploy:
       labels:
         - com.df.notify=true
