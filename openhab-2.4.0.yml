@@ -24,7 +24,7 @@ services:
         - com.df.distribute=true
         - com.df.servicePath=/openhab,/rest,/start,/habpanel,/habmin,/doc,/paperui
         - com.df.reqPathSearchReplace=/openhab,/
-        - com.df.port=8080
+        - com.df.port=8080,9125,9126
   
   frontail:
     image: lukics/frontail:linux-arm32v7-latest
