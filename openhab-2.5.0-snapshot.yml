@@ -7,7 +7,7 @@ services:
     networks:
       - monitor
       - proxy
-      - bcsnet
+      - oh_vlan
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
@@ -58,5 +58,5 @@ networks:
     external: true
   proxy:
     external: true  
-  bcsnet:
+  oh_vlan:
     external: true  
