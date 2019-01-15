@@ -10,7 +10,7 @@ services:
       - proxy     
 # on empty not initialized OH instance (empty directories)
 # run with disabled vlan
-#      - oh_vlan
+      - oh_vlan
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
