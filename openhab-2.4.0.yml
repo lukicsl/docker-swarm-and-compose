@@ -7,7 +7,9 @@ services:
     container_name: openhab
     networks:
       - monitor
-      - proxy
+      - proxy     
+# on empty not initialized OH instance (empty directories)
+# run with disabled vlan
 #      - oh_vlan
     volumes:
       - /etc/localtime:/etc/localtime:ro
