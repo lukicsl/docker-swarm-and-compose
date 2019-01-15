@@ -4,6 +4,7 @@ services:
 
   openhab:
     image: openhab/openhab:2.5.0-snapshot
+    container_name: openhab
     networks:
       - monitor
       - proxy
@@ -17,13 +18,41 @@ services:
       - OPENHAB_HTTP_PORT=8080
       - OPENHAB_HTTPS_PORT=8443
       - EXTRA_JAVA_OPTS=-Duser.timezone=Europe/Berlin
-    labels:
-      - com.df.notify=true
-      - com.df.distribute=true
-      - com.df.servicePath=/openhab/
-      - com.df.reqPathSearch=/openhab
-      - com.df.port=8080
-  
+    deploy:
+      labels:
+        - com.df.notify=true
+        - com.df.distribute=true
+        - com.df.servicePath.1=/openhab,/rest,/start,/habpanel,/habmin,/doc,/paperui
+        - com.df.reqPathSearchReplace.1=/openhab,/
+        - com.df.port.1=8080
+#        - com.df.servicePath.2=/
+        - com.df.srcPort.2=9125
+        - com.df.port.2=9125
+        - com.df.reqMode.2=tcp
+#        - com.df.servicePath.3=/
+        - com.df.srcPort.3=9126
+        - com.df.port.3=9126
+        - com.df.reqMode.3=tcp
+ 
+  frontail:
+    image: lukics/frontail:linux-arm32v7-latest
+    networks:
+      - monitor
+      - proxy
+    volumes:
+      - /datavol/openhab/openhab_userdata:/openhab/userdata
+    command:
+      - --url-path /oh-log
+      - /openhab/userdata/logs/events.log  
+      - /openhab/userdata/logs/openhab.log
+    deploy:
+      labels:
+        - com.df.notify=true
+        - com.df.distribute=true
+        - com.df.servicePath=/oh-log
+        - com.df.port=9001
+
+
 networks:
   monitor:
     external: true
