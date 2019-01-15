@@ -19,7 +19,7 @@ services:
     environment:
       - OPENHAB_HTTP_PORT=8080
       - OPENHAB_HTTPS_PORT=8443
-      - EXTRA_JAVA_OPTS=-Duser.timezone=Europe/Berlin -Djetty.host=0.0.0.0
+      - EXTRA_JAVA_OPTS=-Duser.timezone=Europe/Berlin
     labels:
       - com.df.notify=true
       - com.df.distribute=true
