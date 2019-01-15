@@ -59,3 +59,5 @@ networks:
     external: true
   proxy:
     external: true  
+  bcsnet:
+    external: true  
