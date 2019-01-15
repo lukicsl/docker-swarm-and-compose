@@ -10,4 +10,5 @@
     
     https://www.shellcheck.net/
     
+    http://www.csgnetwork.com/ipinfocalc.html
 
