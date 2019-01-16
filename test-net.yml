@@ -1,12 +1,16 @@
 version: '3'
 services:
-  test:
+  test1:
     image: nginx:stable-alpine
     networks:
-     oh_vlan2:
-       ipv4_address: 192.168.3.6
+     oh_vlan
+   
+  test2:
+    image: nginx:stable-alpine
+    networks:
+     oh_vlan
    
 networks:
- oh_vlan2:
+ oh_vlan:
    external:
-     name: oh_vlan2
+     name: oh_vlan
