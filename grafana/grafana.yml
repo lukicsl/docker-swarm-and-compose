@@ -7,6 +7,10 @@ services:
     networks:
       - monitor
       - proxy
+    volumes:
+      - /datavol/grafana/etc:/etc/grafana
+      - /datavol/grafana/lib://var/lib/grafana
+      - /datavol/grafana/share:/usr/share/grafana
     environment:
       - GF_SERVER_DOMAIN=${DOMAIN:-localhost}
       - GF_SERVER_ROOT_URL=%(protocol)s://%(domain)s:%(http_port)s/grafana
