@@ -3,12 +3,12 @@ services:
   test1:
     image: nginx:stable-alpine
     networks:
-     oh_vlan
+      - oh_vlan
    
   test2:
     image: nginx:stable-alpine
     networks:
-     oh_vlan
+      - oh_vlan
    
 networks:
  oh_vlan:
