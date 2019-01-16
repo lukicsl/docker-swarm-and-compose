@@ -15,24 +15,25 @@ services:
       placement:
         constraints: [node.role == manager]
 
-  grafana:
-    image: lukics/grafana:5.4.2
-    networks:
-      - monitor
-      - proxy
+  monitor:
+    image: lukics/docker-flow-monitor:armv7
     environment:
-      - GF_SERVER_DOMAIN=${DOMAIN:-localhost}
-      - GF_SERVER_ROOT_URL=%(protocol)s://%(domain)s:%(http_port)s/grafana
-      - GF_SECURITY_ADMIN_USER=${GRAFANA_USER:-admin}
-      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASS:-admin}
+      - LISTENER_ADDRESS=swarm-listener
+      - GLOBAL_SCRAPE_INTERVAL=${SCRAPE_INTERVAL:-10s}
+      - ARG_WEB_ROUTE-PREFIX=/monitor
+      - ARG_WEB_EXTERNAL-URL=http://${DOMAIN:-localhost}/monitor
+    networks:
+      - proxy
+      - monitor
     deploy:
       labels:
         - com.df.notify=true
         - com.df.distribute=true
-        - com.df.servicePath=/grafana/,/grafana/public,/grafana/api
-        - com.df.reqPathSearch=/grafana
-        - com.df.port=3000
+        - com.df.servicePath=/monitor
+        - com.df.serviceDomain=${DOMAIN:-localhost}
+        - com.df.port=9090
 
+  
 networks:
   monitor:
     external: true
