@@ -7,8 +7,11 @@ services:
     networks:
       - monitor
       - proxy
+    command: "-config /etc/influxdb/influxdb.conf"
     volumes:
-      - /datavol/influxdb:/etc/influxdb
+      - /datavol/influxdb/etc:/etc/influxdb
+      - /datavol/influxdb/meta:/var/lib/influxdb/meta
+      - /datavol/influxdb/data:/var/lib/influxdb/data
     deploy:
       labels:
         - com.df.notify=true
