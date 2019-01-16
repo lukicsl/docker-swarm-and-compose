@@ -1,6 +1,6 @@
 # Influxdb
 
-**MSC**
+**create db**
 
 
   curl http://vevedock/influxdb/query --data-urlencode "q=CREATE DATABASE openhab_db"
