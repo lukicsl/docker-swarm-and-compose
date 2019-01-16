@@ -3,7 +3,7 @@ version: "3"
 services:
 
   openhab:
-    image: openhab/openhab:2.4.0
+    image: openhab/openhab:2.3.0
     networks:
       - monitor
       - proxy
