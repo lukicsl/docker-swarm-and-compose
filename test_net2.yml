@@ -1,0 +1,16 @@
+version: '3'
+services:
+  test3:
+    image: nginx:stable-alpine
+    networks:
+      - oh_vlan
+   
+  test4:
+    image: nginx:stable-alpine
+    networks:
+      - oh_vlan
+   
+networks:
+ oh_vlan:
+   external:
+     name: oh_vlan
