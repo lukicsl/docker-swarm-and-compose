@@ -16,7 +16,7 @@ services:
             - LC_DIR
             - LH_DIR
         volumes:
-            - /opt/gluster/bricks:/bricks
+            - /media/stick-01:/bricks
 #            - {type: bind, source: '/etc/glusterfs', target: '/etc', bind: {propagation: rshared}}
 #            - /opt/gluster/glusterfs:/etc/glusterfs:z
             - /opt/gluster/glusterd:/var/lib/glusterd:z
