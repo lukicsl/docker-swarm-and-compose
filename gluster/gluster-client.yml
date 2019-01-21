@@ -17,6 +17,7 @@ services:
             - {type: bind, source: '/datavol', target: '/datavol', bind: {propagation: rshared}}
             - /etc/hostname:/opt/gluster/hostname
         deploy:
+            mode: global
             labels:
                 - com.df.notify=true
                 - com.df.distribute=true
