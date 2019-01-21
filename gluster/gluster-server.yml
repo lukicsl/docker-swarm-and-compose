@@ -1,0 +1,29 @@
+version: '3.3'
+services:
+    glusterfs:
+        privileged: true
+        restart: always
+        image: 'lukics/glusterfs:armv7'
+        container_name: glusterfs-${HOSTNAME}
+        networks:
+            - monitor
+            - glsnet
+        environment:
+            - HOSTNAME
+            - LC_SRV
+            - GVOL
+            - LC_DIR
+            - LH_DIR
+        volumes:
+            - /media/stick-01:/bricks
+            - /opt/gluster/glusterd:/var/lib/glusterd:z
+            - /opt/gluster/logs:/var/log/glusterfs:z 
+        deploy:
+            labels:
+                - com.df.notify=true
+                - com.df.distribute=true
+networks:
+    monitor:
+        external: true
+    glsnet:
+        external: true
