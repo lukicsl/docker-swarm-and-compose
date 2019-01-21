@@ -4,7 +4,6 @@ services:
         privileged: true
         restart: always
         image: 'lukics/glusterfs:armv7'
-#        command: sleep 100000
         container_name: glusterfs-${HOSTNAME}
         networks:
             - monitor
@@ -17,8 +16,6 @@ services:
             - LH_DIR
         volumes:
             - /media/stick-01:/bricks
-#            - {type: bind, source: '/etc/glusterfs', target: '/etc', bind: {propagation: rshared}}
-#            - /opt/gluster/glusterfs:/etc/glusterfs:z
             - /opt/gluster/glusterd:/var/lib/glusterd:z
             - /opt/gluster/logs:/var/log/glusterfs:z 
         deploy:
@@ -31,14 +28,16 @@ services:
         image: 'lukics/glustercl:armv7'
         networks:
             - monitor
-            - glsnet        
-        environment:
-            - LC_SRV=glusterfs-${HOSTNAME}
-            - GVOL
-            - LC_DIR
-            - LH_DIR
+            - glsnet    
+        deploy:
+            environment:
+                - LC_SRV
+                - GVOL=vol
+                - LC_DIR=/datavol
+                - LH_DIR=/datavol
         volumes:
-            - {type: bind, source: '${LH_DIR}', target: '${LC_DIR}', bind: {propagation: rshared}}
+            - {type: bind, source: '/datavol', target: '/datavol', bind: {propagation: rshared}}
+            - /etc/hostname:/opt/gluster/hostname
         deploy:
             labels:
                 - com.df.notify=true
