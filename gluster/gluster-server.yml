@@ -19,6 +19,7 @@ services:
             - /opt/gluster/glusterd:/var/lib/glusterd:z
             - /opt/gluster/logs:/var/log/glusterfs:z 
         deploy:
+            mode: global
             labels:
                 - com.df.notify=true
                 - com.df.distribute=true
