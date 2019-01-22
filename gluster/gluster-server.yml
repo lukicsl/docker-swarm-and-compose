@@ -4,7 +4,6 @@ services:
         privileged: true
         restart: always
         image: 'lukics/glusterfs:armv7'
-        container_name: glusterfs-${HOSTNAME}
         networks:
             - monitor
             - glsnet
