@@ -8,7 +8,7 @@ services:
             - monitor
             - glsnet        
         environment:
-            - LC_SRV=glusterfs-${HOSTNAME}
+            - LC_SRV=${HOSTNAME}
             - GVOL
             - LC_DIR
             - LH_DIR
