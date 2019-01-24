@@ -25,7 +25,7 @@ services:
         - com.df.port.1=3000
         - com.df.srcPort.2=3000
         - com.df.port.2=3000
-        - com.df.reqMode.2=tcp
+        - com.df.reqMode.2=http
 #        - com.df.servicePath.1=/openhab,/rest,/start,/habpanel,/habmin,/doc,/paperui
 #        - com.df.reqPathSearchReplace.1=/openhab,/
 
