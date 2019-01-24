@@ -4,7 +4,9 @@
 
     !! IMPORTANT !!
     set environment variable 
+    
     DOMAIN=vevedock
+    
     before deplying stack
     
 **MSC**
