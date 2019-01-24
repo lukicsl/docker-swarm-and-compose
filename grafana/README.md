@@ -1,6 +1,13 @@
 # Grafana
 
 **MSC**
+
+    !! IMPORTANT !!
+    set environment variable 
+    DOMAIN=vevedock
+    before deplying stack
+    
+**MSC**
     
 http://docs.grafana.org/installation/docker/
 
