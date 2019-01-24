@@ -7,6 +7,8 @@ services:
     networks:
       - monitor
       - proxy
+    volumes:
+      - /datavol:/datavol
     environment:
       - GF_SERVER_DOMAIN=${DOMAIN:-localhost}
       - GF_SERVER_ROOT_URL=%(protocol)s://%(domain)s:%(http_port)s/grafana
