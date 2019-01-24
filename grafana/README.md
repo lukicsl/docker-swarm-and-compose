@@ -14,3 +14,14 @@ http://docs.grafana.org/installation/docker/
     GF_PATHS_LOGS	/var/log/grafana
     GF_PATHS_PLUGINS	/var/lib/grafana/plugins
     GF_PATHS_PROVISIONING	/etc/grafana/provisioning
+    
+**sample docke run*
+    
+	docker run \
+	--name grafana     --net=host        \
+	-v /datavol/grafana/etc:/etc/grafana        \
+	-v /datavol/grafana/lib://var/lib/grafana        \
+	-p 3000:3000     \
+	-d --rm lukics/grafana:5.4.2
+
+
