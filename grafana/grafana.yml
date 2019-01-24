@@ -20,8 +20,10 @@ services:
       labels:
         - com.df.notify=true
         - com.df.distribute=true
-        - com.df.servicePath=/grafana,/public,/api,/login
-        - com.df.reqPathSearchReplace=/grafana,/
+        - com.df.servicePath=/grafana/,/grafana/public,/grafana/api
+        - com.df.reqPathSearch=/grafana
+#        - com.df.servicePath=/grafana,/public,/api,/login
+#        - com.df.reqPathSearchReplace=/grafana,/
         - com.df.port=3000
 #        - com.df.servicePath.1=/openhab,/rest,/start,/habpanel,/habmin,/doc,/paperui
 #        - com.df.reqPathSearchReplace.1=/openhab,/
