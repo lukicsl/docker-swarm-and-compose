@@ -1,2 +1,2 @@
-export HOSTNAME=vevedock
+export HOSTNAME
 docker-compose $1 $2
