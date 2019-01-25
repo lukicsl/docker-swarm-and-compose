@@ -21,6 +21,7 @@ services:
       - "--device=eBusGW:5000"
       - "--configpath=/etc/ebusd/encon"
       - "--loglevel=info"
+      - "--pollinterval=1"
     volumes:
 #      - /datavol/ebusd/encon:/etc/ebusd/encon
       - /datavol/ebusd/log/:/var/log
