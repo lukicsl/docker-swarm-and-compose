@@ -8,7 +8,6 @@ services:
       - monitor
       - proxy
     ports:
-      - 1884:1884
       - 8888:8888
       - 8085:8085
     command: 
@@ -16,10 +15,10 @@ services:
       - "--latency=10000"
       - "--httpport=8085"
       - "--scanconfig" 
-      - "--mqtthost=mqtt_mosquitto"
+      - "--mqtthost=vevedock"
       - "--mqttport=1883"
       - "--enablehex"
-      - "--device=192.168.3.35:5000"
+      - "--device=eBusGW:5000"
       - "--configpath=/etc/ebusd/encon"
       - "--loglevel=info"
     volumes:
@@ -32,12 +31,9 @@ services:
         - com.df.servicePath.1=/ebusd
         - com.df.reqPathSearchReplace.1=^/ebusd/?,/
         - com.df.port.1=8085
-        - com.df.srcPort.2=1884
-        - com.df.port.2=1883
+        - com.df.srcPort.2=8888
+        - com.df.port.2=8888
         - com.df.reqMode.2=tcp
-        - com.df.srcPort.3=8888
-        - com.df.port.3=8888
-        - com.df.reqMode.3=tcp
 networks:
   monitor:
     external: true
