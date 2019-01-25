@@ -11,12 +11,12 @@ services:
       - "-f"
       - "--pollinterval=1" 
       - "--latency=1000"
-      - "--httpport 8085"
+      - "--httpport=8085"
       - "--scanconfig" 
       - "--mqtthost=192.168.3.67"
       - "--mqttport=1884"
       - "--enablehex"
-      - "-d udp:192.168.3.35:5000"
+      - "-d 192.168.3.35:5000"
       - "--loglevel=info"
     volumes:
       - /datavol/ebusd/encon:/etc/ebusd/encon
