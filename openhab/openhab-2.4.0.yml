@@ -11,6 +11,9 @@ services:
 # on empty not initialized OH instance (empty directories)
 # run with disabled vlan
 #      - oh_vlan
+    ports:
+      - 9125:9125
+      - 9126:9126
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
