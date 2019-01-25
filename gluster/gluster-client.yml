@@ -6,7 +6,8 @@ services:
         image: 'lukics/glustercl:armv7'
         networks:
             - monitor
-            - glsnet    
+            - glsnet  
+            - bridge
         environment:
             - LC_SRV=glustercl_glustercl
             - GVOL=vol
@@ -25,3 +26,5 @@ networks:
         external: true
     glsnet:
         external: true
+    bridge:
+        external: false
