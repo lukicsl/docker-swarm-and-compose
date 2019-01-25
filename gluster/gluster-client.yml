@@ -27,4 +27,4 @@ networks:
     glsnet:
         external: true
     bridge:
-        external: false
+        external: true
