@@ -31,9 +31,9 @@ services:
         - com.df.srcPort.2=1884
         - com.df.port.2=1884
         - com.df.reqMode.2=tcp
-        - com.df.srcPort.2=8888
-        - com.df.port.2=8888
-        - com.df.reqMode.2=tcp
+        - com.df.srcPort.3=8888
+        - com.df.port.3=8888
+        - com.df.reqMode.3=tcp
 networks:
   monitor:
     external: true
