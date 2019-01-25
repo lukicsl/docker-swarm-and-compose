@@ -16,7 +16,7 @@ services:
       - "--mqtthost=192.168.3.67"
       - "--mqttport=1884"
       - "--enablehex"
-      - "-d 192.168.3.35:5000"
+      - "--device=192.168.3.35:5000"
       - "--loglevel=info"
     volumes:
       - /datavol/ebusd/encon:/etc/ebusd/encon
