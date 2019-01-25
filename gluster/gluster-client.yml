@@ -10,13 +10,12 @@ services:
         deploy:
             environment:
                 - LC_SRV=vevedock
-                - GVOL=vol
-                - LC_DIR=/datavol
-                - LH_DIR=/datavol
+                - GVOL
+                - LC_DIR
+                - LH_DIR
         volumes:
             - {type: bind, source: '/datavol', target: '/datavol', bind: {propagation: rshared}}
-            - /etc/hostname:/opt/gluster/hostname
-        deploy:
+         deploy:
             mode: global
             labels:
                 - com.df.notify=true
