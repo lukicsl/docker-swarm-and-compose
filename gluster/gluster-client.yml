@@ -9,7 +9,7 @@ services:
             - glsnet    
         deploy:
             environment:
-                - LC_SRV
+                - LC_SRV=vevedock
                 - GVOL=vol
                 - LC_DIR=/datavol
                 - LH_DIR=/datavol
