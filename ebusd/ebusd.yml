@@ -3,7 +3,7 @@ version: "3"
 services:
 
   ebusd:
-    image: lukics/ebusd:armv7
+    image: lukics/ebusd-3.3:armv7
     networks:
       - monitor
       - proxy
