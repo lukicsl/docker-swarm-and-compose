@@ -10,9 +10,9 @@ services:
         deploy:
             environment:
                 - LC_SRV=vevedock
-                - GVOL
-                - LC_DIR
-                - LH_DIR
+                - GVOL=vol
+                - LC_DIR=/datavol
+                - LH_DIR=/datavol
         volumes:
             - {type: bind, source: '/datavol', target: '/datavol', bind: {propagation: rshared}}
         deploy:
