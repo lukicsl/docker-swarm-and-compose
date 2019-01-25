@@ -7,6 +7,10 @@ services:
     networks:
       - monitor
       - proxy
+    ports:
+      - 1884:1884
+      - 8888:8888
+      - 8085:8085
     command: 
       - "-f"
       - "--latency=10000"
