@@ -12,14 +12,14 @@ services:
       - "--latency=10000"
       - "--httpport=8085"
       - "--scanconfig" 
-#      - "--mqtthost=192.168.3.67"
-#      - "--mqttport=1884"
-#      - "--enablehex"
+      - "--mqtthost=192.168.3.67"
+      - "--mqttport=1884"
+      - "--enablehex"
       - "--device=192.168.3.35:5000"
-      - "-c /etc/ebusd/encon"
- #     - "--loglevel=info"
+      - "---configpath=/etc/ebusd/encon"
+      - "--loglevel=info"
     volumes:
-      - /datavol/ebusd/encon:/etc/ebusd/encon
+#      - /datavol/ebusd/encon:/etc/ebusd/encon
       - /datavol/ebusd/log/:/var/log
     deploy:
       labels:
