@@ -17,9 +17,10 @@ services:
       - "--mqttport=1884"
       - "--enablehex"
       - "--device=192.168.3.35:5000"
+      - "--configpath=/etc/ebusd/encon"
       - "--loglevel=info"
     volumes:
-      - /datavol/ebusd:/etc/ebusd
+      - /datavol/ebusd/encon:/etc/ebusd/encon
       - /datavol/ebusd/log/:/var/log
     deploy:
       labels:
