@@ -4,6 +4,8 @@ services:
 
   mosquitto:
     image: eclipse-mosquitto
+    ports:
+      - 1883:1883
     networks:
       - monitor
       - proxy
