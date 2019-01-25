@@ -15,7 +15,7 @@ services:
                 - LH_DIR
         volumes:
             - {type: bind, source: '/datavol', target: '/datavol', bind: {propagation: rshared}}
-         deploy:
+        deploy:
             mode: global
             labels:
                 - com.df.notify=true
