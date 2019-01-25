@@ -9,7 +9,7 @@ services:
             - glsnet  
             - bridge
         environment:
-            - LC_SRV=glustercl_glustercl
+            - LC_SRV=vevedock
             - GVOL=vol
             - LC_DIR=/datavol
             - LH_DIR=/datavol
