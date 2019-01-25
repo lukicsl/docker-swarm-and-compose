@@ -20,7 +20,7 @@ services:
       - "--loglevel=info"
     volumes:
       - /datavol/ebusd/encon:/etc/ebusd/encon
-      - /datavol/ebusd/log/ebusd.log:/var/log/ebusd.log
+      - /datavol/ebusd/log/:/var/log
     deploy:
       labels:
         - com.df.notify=true
