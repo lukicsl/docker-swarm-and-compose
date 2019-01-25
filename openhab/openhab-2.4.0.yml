@@ -27,7 +27,7 @@ services:
         - com.df.notify=true
         - com.df.distribute=true
         - com.df.servicePath.1=/openhab,/rest,/start,/habpanel,/habmin,/doc,/paperui
-        - com.df.reqPathSearchReplace.1=/openhab,/
+        - com.df.reqPathSearchReplace.1=^/openhab/?,/
         - com.df.port.1=8080
 #        - com.df.servicePath.2=/
         - com.df.srcPort.2=9125
