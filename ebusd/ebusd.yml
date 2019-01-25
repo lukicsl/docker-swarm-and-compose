@@ -7,7 +7,7 @@ services:
     networks:
       - monitor
       - proxy
-    command: -f --scanconfig -d 192.168.3.35:5000 --latency=10000 -l /var/log/ebusd.log  -c /etc/ebusd/encon --httpport=8085
+    command: 
       - "-f"
       - "--latency=10000"
       - "--httpport=8085"
