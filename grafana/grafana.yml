@@ -20,7 +20,7 @@ services:
       labels:
         - com.df.notify=true
         - com.df.distribute=true
-        - com.df.serviceDomain=vevedock
+#        - com.df.serviceDomain=vevedock
         - com.df.servicePath=/grafana/,/grafana/public,/grafana/api
         - com.df.reqPathSearchReplace=^/grafana/?,/
         - com.df.port=3000
