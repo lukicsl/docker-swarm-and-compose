@@ -5,7 +5,7 @@ services:
         restart: always
         image: 'lukics/glustercl:armv7'
         environment:
-            - LC_SRV=${HOSTNAME}
+            - LC_SRV=vevedock
             - GVOL
             - LC_DIR
             - LH_DIR
