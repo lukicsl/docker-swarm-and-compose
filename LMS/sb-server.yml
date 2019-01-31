@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+
+  sb-server:
+    image: lukics/sb-server:armv7
+    ports:
+      - 9000:9000
+      - 9090:9090
+      - 3483:3483
+    networks:
+      - monitor
+      - proxy
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+      - /datavol/sb-server/state:/srv/squeezebox
+      - /datavol/sb-server/music:/srv/music
+    deploy:
+      labels:
+        - com.df.notify=true
+        - com.df.distribute=true
+        - com.df.servicePath.1=/sb-server
+        - com.df.reqPathSearchReplace.1=/sb-server,/
+        - com.df.port.1=9000
+        - com.df.srcPort.2=9090
+        - com.df.port.2=9090
+        - com.df.reqMode.2=tcp
+        - com.df.srcPort.3=3483
+        - com.df.port.3=3483
+        - com.df.reqMode.3=tcp
+networks:
+  monitor:
+    external: true
+  proxy:
+    external: true  
