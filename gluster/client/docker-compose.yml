@@ -7,8 +7,8 @@ services:
         environment:
             - LC_SRV=vevedock
             - GVOL
-            - LC_DIR
-            - LH_DIR
+            - LC_DIR=/datavol
+            - LH_DIR=/datavol
         volumes:
             - {type: bind, source: '${LH_DIR}', target: '${LC_DIR}', bind: {propagation: rshared}}
         labels:
