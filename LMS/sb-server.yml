@@ -20,7 +20,7 @@ services:
         - com.df.notify=true
         - com.df.distribute=true
         - com.df.servicePath.1=/sb-server,/settings
-        - com.df.reqPathSearchReplace.1=/sb-server,/
+        - com.df.reqPathSearchReplace.1=^/sb-server/?,/
         - com.df.port.1=9000
         - com.df.srcPort.2=9090
         - com.df.port.2=9090
