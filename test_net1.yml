@@ -3,14 +3,16 @@ services:
   test1:
     image: nginx:stable-alpine
     networks:
-      - oh_vlan
+      - macnet3:
+        ipv4_address: 192.168.3.10
    
   test2:
     image: nginx:stable-alpine
     networks:
-      - oh_vlan
+      - macnet3
+        ipv4_address: 192.168.3.11
    
 networks:
- oh_vlan:
+ macnet3:
    external:
-     name: oh_vlan
+     name: macnet3
