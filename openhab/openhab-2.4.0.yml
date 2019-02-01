@@ -49,10 +49,9 @@ services:
     networks:
       - monitor
       - proxy
-    volumes_from:
-      - openhab
     volumes:
       - /datavol/openhab/openhab_userdata:/openhab/userdata
+      - openhab-log:/openhab/userdata/logs
     command:
       - --url-path /oh-log
       - /openhab/userdata/logs/events.log  
