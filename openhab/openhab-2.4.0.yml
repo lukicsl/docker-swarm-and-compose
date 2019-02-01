@@ -4,7 +4,7 @@ services:
 
   openhab:
     image: openhab/openhab:2.4.0
-    container_name: openhab
+    hostname: sb-server
     networks:
       - monitor
       - proxy     
