@@ -12,7 +12,7 @@ services:
     networks:
       - monitor
       - proxy
-      - oh_vlan
+      - sb-macvlan
     volumes:
       - /etc/localtime:/etc/localtime:ro 
       - /datavol/sb-server/state:/srv/squeezebox
@@ -35,5 +35,5 @@ networks:
     external: true
   proxy:
     external: true  
-  oh_vlan:
+  sb-macvlan:
     external: true  
