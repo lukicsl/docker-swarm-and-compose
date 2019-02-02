@@ -9,7 +9,7 @@
     docker network create  --config-only --subnet="192.168.3.0/24" --ip-range="192.168.3.2/24" -o parent=eth0 conf_net
     docker network create -d macvlan --scope swarm --config-from conf_net oh_vlan
     
-    ierror during run, eth0, etc:
+    error during run, eth0, etc:
     Removing /var/lib/docker/network/files/local-kv.db and restarting docker fixes the issue.
 
 **Utilities*
