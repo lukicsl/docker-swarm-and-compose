@@ -8,7 +8,7 @@ services:
     networks:
       - monitor
       - proxy     
-      - oh_lan
+      - oh_macvlan
     ports:
       - 9125:9125
       - 9126:9126
@@ -56,16 +56,10 @@ services:
         - com.df.servicePath=/oh-log
         - com.df.port=9001
 
-
 networks:
   monitor:
     external: true
   proxy:
     external: true  
-  oh_lan:
-    driver: macvlan
-    driver_opts:
-      parent: eth0
-    ipam:
-      config:
-        - subnet: 192.168.3.168/32       
+  oh_macvlan:
+    external: true
