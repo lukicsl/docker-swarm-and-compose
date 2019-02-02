@@ -12,6 +12,9 @@
     docker network create -d macvlan  --scope swarm --config-from sb-config sb-macvlan    
     
     error during run, eth0, etc:
+    sudo rm /var/lib/docker/network/files/local-kv.db
+    sudo systemctl restart  docker.service
+    
     Removing /var/lib/docker/network/files/local-kv.db and restarting docker fixes the issue.
 
 **Utilities*
