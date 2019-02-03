@@ -9,6 +9,7 @@ services:
       - proxy
     ports:
       - 8888:8888
+      - 8085:8085
     command: 
       - "-f"
       - "--latency=10000"
