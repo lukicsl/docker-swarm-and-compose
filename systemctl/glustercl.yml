@@ -1,0 +1,18 @@
+version: '3.3'
+  glustercl:
+    depends_on:
+      - glusterfs
+    privileged: true
+    restart: always
+    network_mode: "host"
+    tty: true
+    image: 'lukics/glustercl:armv7'
+    container_name: glustercl-${HOST}
+    environment:
+      - LC_SRV=vevedock
+      - GVOL=vol
+      - LC_DIR=datavol
+      - LH_DIR=datavol
+    volumes:
+      - {type: bind, source: '/datavol', target: '/datavol', bind: {propagation: rshared}}
+      
