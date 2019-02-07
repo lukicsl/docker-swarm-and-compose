@@ -1,8 +1,6 @@
 version: '3.3'
 services:
   openvpn:
-    depends_on:
-      - glustercl
     privileged: true
     restart: always
     image: 'lukics/openvpn:armv7'
