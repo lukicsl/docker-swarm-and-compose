@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+    openvpn:
+        privileged: true
+        restart: always
+        image: 'lukics/openvpn:armv7'
+        environment:
+            - LC_SRV=vevedock
+            - GVOL
+            - LC_DIR=/datavol
+            - LH_DIR=/datavol
+        volumes:
+            - /datavol/openvpn/etc:/etc/openvpn
