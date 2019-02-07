@@ -1,0 +1,11 @@
+version: '3.3'
+  openvpn:
+    depends_on:
+      - glustercl
+    privileged: true
+    restart: always
+    image: 'lukics/openvpn:armv7'
+    container_name: openvpn-${HOST}
+    ports:
+      - 1194:1194/udp
+    volumes:
