@@ -1,8 +1,6 @@
 version: '3.3'
 services:
   glusterfs:
-    depends_on:
-      - keepalived
     privileged: true
     restart: always
     network_mode: "host"
