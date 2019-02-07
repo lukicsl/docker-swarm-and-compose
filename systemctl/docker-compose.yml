@@ -20,6 +20,8 @@ services:
       - /root/.docker:/root/.docker
       
   glusterfs:
+    depends_on:
+      - keepalived
     privileged: true
     restart: always
     network_mode: "host"
@@ -33,6 +35,8 @@ services:
       - /media/ssd-01:/bricks
       
   glustercl:
+    depends_on:
+      - glusterfs
     privileged: true
     restart: always
     network_mode: "host"
@@ -48,6 +52,8 @@ services:
       - {type: bind, source: '/datavol', target: '/datavol', bind: {propagation: rshared}}
       
   openvpn:
+    depends_on:
+      - glustercl
     privileged: true
     restart: always
     image: 'lukics/openvpn:armv7'
