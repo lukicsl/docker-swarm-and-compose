@@ -11,4 +11,4 @@ services:
       - /opt/gluster/glusterd:/var/lib/glusterd:z
       - /opt/gluster/logs:/var/log/glusterfs:z
       - /media/stick-01:/bricks
-      - /media/ssd-01:/bricks
+#      - /media/ssd-01:/bricks
