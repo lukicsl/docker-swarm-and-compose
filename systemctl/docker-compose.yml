@@ -3,8 +3,12 @@ services:
   keepalived:
     privileged: true
     restart: always
+    tty: true
+    network_mode: "host"
     image: 'lukics/keepalived:armv7'
     container_name: keepalived-${HOST}
+    cap_add:
+      - NET_ADMIN
     environment:
       - VIRTUAL_IP=192.168.3.250
       - VIRTUAL_ROUTER_ID=51
@@ -15,25 +19,33 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /root/.docker:/root/.docker
       
-  openvpn:
+  glusterfs:
     privileged: true
     restart: always
-    image: 'lukics/openvpn:armv7'
-    container_name: openvpn-${HOST}
-    ports:
-      - 1194:1194/udp
+    network_mode: "host"
+    tty: true
+    image: 'lukics/glusterfs:armv7'
+    container_name: glusterfs-${HOST}
     volumes:
-      - /datavol/openvpn/etc:/etc/openvpn
+      - /opt/gluster/glusterd:/var/lib/glusterd:z
+      - /opt/gluster/logs:/var/log/glusterfs:z
+      - /media/stick-01:/bricks
+      - /media/ssd-01:/bricks
       
-  openvpn:
+  glustercl:
     privileged: true
     restart: always
-    image: 'lukics/openvpn:armv7'
-    container_name: openvpn-${HOST}
-    ports:
-      - 1194:1194/udp
+    network_mode: "host"
+    tty: true
+    image: 'lukics/glustercl:armv7'
+    container_name: glustercl-${HOST}
+    environment:
+      - LC_SRV=vevedock
+      - GVOL=vol
+      - LC_DIR=datavol
+      - LH_DIR=datavol
     volumes:
-      - /datavol/openvpn/etc:/etc/openvpn
+      - {type: bind, source: '/datavol', target: '/datavol', bind: {propagation: rshared}}
       
   openvpn:
     privileged: true
