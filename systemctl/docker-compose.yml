@@ -1,0 +1,46 @@
+version: '3.3'
+services:
+  keepalived:
+    privileged: true
+    restart: always
+    image: 'lukics/keepalived:armv7'
+    container_name: keepalived-${HOST}
+    environment:
+      - VIRTUAL_IP=192.168.3.250
+      - VIRTUAL_ROUTER_ID=51
+      - INTERFACE=eth0
+      - PRIORITY=${PRIO}
+      - PASSWORD=topsecret
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /root/.docker:/root/.docker
+      
+  openvpn:
+    privileged: true
+    restart: always
+    image: 'lukics/openvpn:armv7'
+    container_name: openvpn-${HOST}
+    ports:
+      - 1194:1194/udp
+    volumes:
+      - /datavol/openvpn/etc:/etc/openvpn
+      
+  openvpn:
+    privileged: true
+    restart: always
+    image: 'lukics/openvpn:armv7'
+    container_name: openvpn-${HOST}
+    ports:
+      - 1194:1194/udp
+    volumes:
+      - /datavol/openvpn/etc:/etc/openvpn
+      
+  openvpn:
+    privileged: true
+    restart: always
+    image: 'lukics/openvpn:armv7'
+    container_name: openvpn-${HOST}
+    ports:
+      - 1194:1194/udp
+    volumes:
+      - /datavol/openvpn/etc:/etc/openvpn
