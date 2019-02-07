@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+  keepalived:
+    privileged: true
+    restart: always
+    tty: true
+    network_mode: "host"
+    image: 'lukics/keepalived:armv7'
+    container_name: keepalived-${HOST}
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - VIRTUAL_IP=192.168.3.250
+      - VIRTUAL_ROUTER_ID=51
+      - INTERFACE=eth0
+      - PRIORITY=${PRIO}
+      - PASSWORD=topsecret
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /root/.docker:/root/.docker
