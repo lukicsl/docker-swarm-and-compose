@@ -4,7 +4,7 @@ services:
     privileged: true
     restart: always
     tty: true
-    network_mode: "host"
+    network_mode: host
     image: 'lukics/keepalived:armv7'
     container_name: keepalived-${HOST}
     cap_add:
@@ -24,7 +24,7 @@ services:
       - keepalived
     privileged: true
     restart: always
-    network_mode: "host"
+    network_mode: host
     tty: true
     image: 'lukics/glusterfs:armv7'
     container_name: glusterfs-${HOST}
@@ -39,7 +39,7 @@ services:
       - glusterfs
     privileged: true
     restart: always
-    network_mode: "host"
+    network_mode: host
     tty: true
     image: 'lukics/glustercl:armv7'
     container_name: glustercl-${HOST}
