@@ -3,7 +3,7 @@ services:
   glusterfs:
     privileged: true
     restart: always
-    network_mode: "host"
+    network_mode: host
     tty: true
     image: 'lukics/glusterfs:armv7'
     container_name: glusterfs-${HOST}
