@@ -1,7 +1,9 @@
 version: '3.6'
 services:
   glustercl:
-    privileged: true
+#    privileged: true
+    cap_add:
+      - ALL
     restart: always
 #    network_mode: host
     tty: true
