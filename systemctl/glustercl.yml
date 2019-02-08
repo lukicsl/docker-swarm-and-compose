@@ -5,7 +5,7 @@ services:
     cap_add:
       - ALL
     restart: always
-#    network_mode: host
+    network_mode: host
     tty: true
     image: 'lukics/glustercl:armv7'
     container_name: glustercl-${HOST}
