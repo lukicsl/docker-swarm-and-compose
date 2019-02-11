@@ -8,3 +8,4 @@ services:
     ports:
       - 1194:1194/udp
     volumes:
+      - /datavol/openvpn/etc:/etc/openvpn
