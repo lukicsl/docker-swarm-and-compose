@@ -18,6 +18,8 @@
     docker network create --config-only --subnet 192.168.3.0/24 --gateway 192.168.3.1 --ip-range 192.168.3.169/32 -o parent=eth0  sb-config
    
     Removing /var/lib/docker/network/files/local-kv.db and restarting docker fixes the issue.
+    
+    docker run  --name samba-${HOSTNAME} -p 139:139 -p 445:445 -v /datavol:/datavol -d --rm lukics/samba:armv7 -s  "mount-vevedock-09;/datavol;yes;no;no" -u "lukics;.Techno." -p -n
 
 **Utilities*
     
