@@ -27,7 +27,7 @@
 		-d         --rm         openhab/openhab:2.4.0
 
 	docker run         \
-		--name openhab-2.5.0-snapshot  --net=host          \
+		--name openhab-2.5.0  --net=host          \
 		-v /etc/localtime:/etc/localtime:ro         \
 		-v /etc/timezone:/etc/timezone:ro         \
 		-v /datavol/openhab/openhab_addons:/openhab/addons         \
