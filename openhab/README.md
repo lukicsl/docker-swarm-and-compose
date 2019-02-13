@@ -35,7 +35,7 @@
 		-v /datavol/openhab-2.5.0/openhab_userdata:/openhab/userdata         \
 		-e "CRYPTO_POLICY=unlimited"    \
 		-e "EXTRA_JAVA_OPTS=-Duser.timezone=Europe/Berlin -Xms400m -Xmx650m"    \
-		-p 8081:8080 -p 9128:9126 -p 9127:9125    \
+		-p 8080:8080 -p 9126:9126 -p 9125:9125    \
 		-d         --rm         openhab/openhab:2.5.0-snapshot
 
 
