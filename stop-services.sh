@@ -1,1 +1,7 @@
-docker stack rm proxy sbserver grafana influxdb mosquitto ebusd openhab
+docker stack rm proxy 
+docker stack rm sbserver 
+docker stack rm grafana 
+docker stack rm influxdb 
+docker stack rm mosquitto 
+docker stack rm ebusd 
+docker stack rm openhab
