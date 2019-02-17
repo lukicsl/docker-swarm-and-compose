@@ -2,7 +2,7 @@ version: "3"
 
 services:
 
-  sb-server:
+  sbserver:
     image: lukics/sb-server:armv7
     ports:
       - 9000:9000
