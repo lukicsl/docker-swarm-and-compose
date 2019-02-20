@@ -26,7 +26,7 @@ services:
     deploy:
       placement:
         constraints: [node.hostname == vevedock-06]
-        labels:
+      labels:
         - com.df.notify=true
         - com.df.distribute=true
 #        - com.df.servicePath.1=/openhab,/rest,/start,/habpanel,/habmin,/doc,/paperui
