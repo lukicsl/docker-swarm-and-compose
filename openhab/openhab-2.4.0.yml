@@ -24,7 +24,9 @@ services:
       - EXTRA_JAVA_OPTS=-Duser.timezone=Europe/Berlin -Xms400m -Xmx650m
       - CRYPTO_POLICY=unlimited
     deploy:
-      labels:
+      placement:
+        constraints: [node.hostname == vevedock-06]
+        labels:
         - com.df.notify=true
         - com.df.distribute=true
 #        - com.df.servicePath.1=/openhab,/rest,/start,/habpanel,/habmin,/doc,/paperui
