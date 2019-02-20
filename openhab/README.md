@@ -51,3 +51,6 @@
 		-d         --rm         openhab/openhab:2.5.0.M1
 
 
+	docker run  --name samba-${HOSTNAME} -p 139:139 -p 445:445 \
+		-v /datavol:/datavol -d --rm lukics/samba:armv7 \
+		-s  "mount-vevedock;/datavol;yes;no;no" -u "lukics;.Techno." -p -n
