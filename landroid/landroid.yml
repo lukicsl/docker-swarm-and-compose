@@ -2,7 +2,7 @@ version: "3"
 
 services:
   landroid:
-    image: lukics/ebusd-3.3:armv7
+    image: lukics/landroid:armv7
     networks:
       - monitor
       - proxy
