@@ -15,7 +15,7 @@ services:
       - "--latency=10000"
       - "--httpport=8085"
       - "--scanconfig" 
-      - "--mqtthost=vevedock"
+      - "--mqtthost=mosquitto_mosquitto"
       - "--mqttport=1883"
       - "--enablehex"
       - "--device=eBusGW:5000"
