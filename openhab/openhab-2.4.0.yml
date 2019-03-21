@@ -25,7 +25,10 @@ services:
       - CRYPTO_POLICY=unlimited
     deploy:
       placement:
-        constraints: [node.hostname == vevedock-06]
+        constraints: 
+          - node.hostname == vevedock-04
+          - node.hostname == vevedock-05
+          - node.hostname == vevedock-06
       labels:
         - com.df.notify=true
         - com.df.distribute=true
