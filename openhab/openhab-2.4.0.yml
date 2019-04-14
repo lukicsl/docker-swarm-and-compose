@@ -25,7 +25,7 @@ services:
       - CRYPTO_POLICY=unlimited
     deploy:
       placement:
-        constraints: [node.role != manager]
+        constraints: [node.role == manager]
       labels:
         - com.df.notify=true
         - com.df.distribute=true
