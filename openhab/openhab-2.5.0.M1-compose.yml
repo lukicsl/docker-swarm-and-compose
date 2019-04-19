@@ -58,8 +58,3 @@ services:
       - com.df.port=8080
    
   
-networks:
-  monitor:
-    external: true
-  proxy:
-    external: true  
