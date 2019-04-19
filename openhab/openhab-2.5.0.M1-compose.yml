@@ -1,0 +1,71 @@
+version: "3"
+
+services:
+
+  openhab:
+    image: openhab/openhab:2.5.0.M1
+    networks:
+      - monitor
+      - proxy
+    ports:
+      - 9125:9125
+      - 9126:9126
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /datavol/openhab-2.5.0.M1/openhab_addons:/openhab/addons 
+      - /datavol/openhab-2.5.0.M1/openhab_conf:/openhab/conf 
+      - /datavol/openhab-2.5.0.M1/openhab_userdata:/openhab/userdata 
+    environment:
+      - OPENHAB_HTTP_PORT=8080
+      - OPENHAB_HTTPS_PORT=8443
+      - EXTRA_JAVA_OPTS=-Duser.timezone=Europe/Berlin -Xms400m -Xmx650m
+      - CRYPTO_POLICY=unlimited
+    labels:
+      - com.df.notify=true
+      - com.df.distribute=true
+      - com.df.servicePath=/openhab/
+      - com.df.reqPathSearch=/openhab
+      - com.df.port=8080
+  
+  frontail:
+    image: lukics/frontail:armv7
+    command: ["/openhab/userdata/logs/events.log", "/openhab/userdata/logs/openhab.log"]  
+    networks:
+      - monitor
+      - proxy
+    ports:
+      - 9001:9001
+    volumes:
+      - /datavol/openhab-2.5.0.M1/openhab_userdata:/openhab/userdata 
+    labels:
+      - com.df.notify=true
+      - com.df.distribute=true
+      - com.df.servicePath=/openhab/
+      - com.df.reqPathSearch=/openhab
+      - com.df.port=8080
+   
+  samba:
+    image: lukics/samba:armv7
+    command: ["-s", "mount-vevedock-09;/datavol;yes;no;no", "-u", "lukics;.Techno.", "-pn"]
+    networks:
+      - monitor
+      - proxy
+    ports:
+      - 139:139
+      - 445:445
+    volumes:
+      - /datavol:/datavol
+    labels:
+      - com.df.notify=true
+      - com.df.distribute=true
+      - com.df.servicePath=/openhab/
+      - com.df.reqPathSearch=/openhab
+      - com.df.port=8080
+   
+  
+networks:
+  monitor:
+    external: true
+  proxy:
+    external: true  
