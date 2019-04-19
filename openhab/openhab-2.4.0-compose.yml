@@ -13,9 +13,9 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
-      - /datavol/openhab2.4.0/openhab_addons:/openhab/addons 
-      - /datavol/openhab2.4.0/openhab_conf:/openhab/conf 
-      - /datavol/openhab2.4.0/openhab_userdata:/openhab/userdata 
+      - /datavol/openhab-2.4.0/openhab_addons:/openhab/addons 
+      - /datavol/openhab-2.4.0/openhab_conf:/openhab/conf 
+      - /datavol/openhab-2.4.0/openhab_userdata:/openhab/userdata 
     environment:
       - OPENHAB_HTTP_PORT=8080
       - OPENHAB_HTTPS_PORT=8443
@@ -37,7 +37,7 @@ services:
     ports:
       - 9001:9001
     volumes:
-      - /datavol/openhab2.4.0/openhab_userdata:/openhab/userdata 
+      - /datavol/openhab-2.4.0/openhab_userdata:/openhab/userdata 
     labels:
       - com.df.notify=true
       - com.df.distribute=true
