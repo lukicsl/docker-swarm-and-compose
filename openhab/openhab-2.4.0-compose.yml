@@ -4,9 +4,7 @@ services:
 
   openhab:
     image: openhab/openhab:2.4.0
-    networks:
-      - monitor
-      - proxy
+    network_mode: host
     ports:
       - 9125:9125
       - 9126:9126
@@ -31,9 +29,7 @@ services:
   frontail:
     image: lukics/frontail:armv7
     command: ["/openhab/userdata/logs/events.log", "/openhab/userdata/logs/openhab.log"]  
-    networks:
-      - monitor
-      - proxy
+    network_mode: host
     ports:
       - 9001:9001
     volumes:
@@ -48,9 +44,7 @@ services:
   samba:
     image: lukics/samba:armv7
     command: ["-s", "mount-vevedock-09;/datavol;yes;no;no", "-u", "lukics;.Techno.", "-pn"]
-    networks:
-      - monitor
-      - proxy
+    network_mode: host
     ports:
       - 139:139
       - 445:445
@@ -64,8 +58,3 @@ services:
       - com.df.port=8080
    
   
-networks:
-  monitor:
-    external: true
-  proxy:
-    external: true  
