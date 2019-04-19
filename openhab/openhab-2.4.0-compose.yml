@@ -34,7 +34,7 @@ services:
     networks:
       - monitor
       - proxy
-     ports:
+    ports:
       - 9001:9001
     volumes:
       - /datavol/openhab2.4.0/openhab_userdata:/openhab/userdata 
@@ -51,7 +51,7 @@ services:
     networks:
       - monitor
       - proxy
-     ports:
+    ports:
       - 139:139
       - 445:445
     volumes:
