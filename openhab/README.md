@@ -1,7 +1,10 @@
 
 
 **sample docke run*
-    
+	
+	export OH_VERSION="2.4.0"
+	docker-compose -f openhab-compose.yml
+	
 	docker run         \
 		--name openhab-2.3.0     --net=host        \
 		-v /etc/localtime:/etc/localtime:ro         \
