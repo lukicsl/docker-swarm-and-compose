@@ -3,7 +3,7 @@
 **sample docke run*
 	
 	export OH_VERSION="2.4.0"
-	docker-compose -f openhab-compose.yml
+	docker-compose -f openhab-compose.yml up -d
 	
 	docker run         \
 		--name openhab-2.3.0     --net=host        \
