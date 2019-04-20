@@ -3,7 +3,7 @@ version: "3.2"
 services:
 
   openhab:
-    image: openhab/openhab:{OH_VERSION}
+    image: openhab/openhab:${OH_VERSION}
     network_mode: host
     ports:
       - 9125:9125
