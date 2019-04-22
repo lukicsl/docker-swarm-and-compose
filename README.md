@@ -31,7 +31,7 @@
     
     https://stackedit.io/app#
 
-   docker service create \
+    docker service create \
        --name portainer \
        --publish 9000:9000 \
        --replicas=1 \
