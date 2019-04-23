@@ -12,6 +12,7 @@ services:
     ports:
       - 9125:9125
       - 9126:9126
+      - 5007:5007
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
