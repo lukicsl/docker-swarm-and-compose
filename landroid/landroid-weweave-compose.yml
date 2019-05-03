@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  landroid:
+    image: weweave/landroid-bridge
+    network_mode: host
+    ports:
+      - 4000:3000
+    volumes:
+      - /datavol/landroid/config.json:/usr/src/app/config.json
+    labels:
+      - com.df.notify=true
+      - com.df.distribute=true
+      - com.df.servicePath=/lanroid, /lanroid/
+      - com.df.reqPathSearchReplace=^/lanroid/?,/
+      - com.df.port=4000
