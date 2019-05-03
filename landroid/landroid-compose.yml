@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  landroid:
+    image: lukics/landroid:armv7
+    networks:
+      - monitor
+      - proxy
+    ports:
+      - 4000:3000
+    volumes:
+      - /datavol/landroid/config.json:/usr/src/app/config.json
+    deploy:
+      labels:
+        - com.df.notify=true
+        - com.df.distribute=true
+        - com.df.servicePath=/lanroid, /lanroid/
+        - com.df.reqPathSearchReplace=^/lanroid/?,/
+        - com.df.port=4000
+networks:
+  monitor:
+    external: true
+  proxy:
+    external: true  
+
