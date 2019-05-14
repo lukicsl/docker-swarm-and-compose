@@ -3,7 +3,7 @@ version: "3"
 services:
 
   grafana:
-    image: lukics/grafana:5.4.2
+    image: lukics/grafana
     networks:
       - monitor
       - proxy
