@@ -19,7 +19,7 @@ services:
    
   samba:
     image: lukics/samba:armv7
-    command: ["-s", "mount-vevedock-${HOSTNAME};/datavol;yes;no;no", "-u", "lukics;.Techno.", "-pn"]
+    command: ["-s", "mount-vevedock-${HOSTNAME};/datavol;yes;no;no", "-u", "lukics;.Techno.", "-pn", "-W"]
     network_mode: host
     ports:
       - 139:139
