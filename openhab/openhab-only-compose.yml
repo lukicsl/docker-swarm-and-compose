@@ -1,0 +1,28 @@
+version: "3.2"
+
+services:
+
+  openhab:
+    image: openhab/openhab:${OH_VERSION}
+    network_mode: host
+    ports:
+      - 9125:9125
+      - 9126:9126
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /datavol/openhab-${OH_VERSION}/openhab_addons:/openhab/addons 
+      - /datavol/openhab-${OH_VERSION}/openhab_conf:/openhab/conf 
+      - /datavol/openhab-${OH_VERSION}/openhab_userdata:/openhab/userdata 
+    environment:
+      - OPENHAB_HTTP_PORT=8080
+      - OPENHAB_HTTPS_PORT=8443
+      - EXTRA_JAVA_OPTS=-Duser.timezone=Europe/Berlin -Xms400m -Xmx650m
+      - CRYPTO_POLICY=unlimited
+    labels:
+      - com.df.notify=true
+      - com.df.distribute=true
+      - com.df.servicePath=/openhab/
+      - com.df.reqPathSearch=/openhab
+      - com.df.port=8080
+  
