@@ -1,0 +1,36 @@
+version: "3.2"
+
+services:
+  
+  frontail:
+    image: lukics/frontail:armv7
+    command: ["/openhab/userdata/logs/events.log", "/openhab/userdata/logs/openhab.log"]  
+    network_mode: host
+    ports:
+      - 9001:9001
+    volumes:
+      - /datavol/openhab-${OH_VERSION}/openhab_userdata:/openhab/userdata 
+    labels:
+      - com.df.notify=true
+      - com.df.distribute=true
+      - com.df.servicePath=/openhab/
+      - com.df.reqPathSearch=/openhab
+      - com.df.port=8080
+   
+  samba:
+    image: lukics/samba:armv7
+    command: ["-s", "mount-vevedock-${HOSTNAME};/datavol;yes;no;no", "-u", "lukics;.Techno.", "-pn"]
+    network_mode: host
+    ports:
+      - 139:139
+      - 445:445
+    volumes:
+      - /datavol:/datavol
+    labels:
+      - com.df.notify=true
+      - com.df.distribute=true
+      - com.df.servicePath=/openhab/
+      - com.df.reqPathSearch=/openhab
+      - com.df.port=8080
+   
+  
