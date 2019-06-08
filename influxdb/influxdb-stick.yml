@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+
+  influxdb:
+    image: influxdb
+    networks:
+      - monitor
+      - proxy
+    command: "-config /etc/influxdb/influxdb.conf"
+    volumes:
+      - /datavol/influxdb/etc:/etc/influxdb
+      - /datavol/influxdb/meta:/var/lib/influxdb/meta
+      - /datavol/influxdb/data:/var/lib/influxdb/data
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+      labels:
+        - com.df.notify=true
+        - com.df.distribute=true
+        - com.df.servicePath.1=/influxdb
+        - com.df.reqPathSearchReplace.1=/influxdb/,/
+        - com.df.port.1=8086
+        - com.df.srcPort.2=8086
+        - com.df.port.2=8086
+        - com.df.reqMode.2=tcp
+networks:
+  monitor:
+    external: true
+  proxy:
+    external: true  
