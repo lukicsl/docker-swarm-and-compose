@@ -9,9 +9,9 @@ services:
       - proxy
     command: "-config /etc/influxdb/influxdb.conf"
     volumes:
-      - /datavol/influxdb/etc:/etc/influxdb
-      - /datavol/influxdb/meta:/var/lib/influxdb/meta
-      - /datavol/influxdb/data:/var/lib/influxdb/data
+      - /datavol/influxdb-stick/etc:/etc/influxdb
+      - /datavol/influxdb-stick/meta:/var/lib/influxdb/meta
+      - /datavol/influxdb-stick/data:/var/lib/influxdb/data
     deploy:
       placement:
         constraints: [node.role == manager]
