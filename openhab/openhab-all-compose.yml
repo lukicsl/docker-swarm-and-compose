@@ -14,6 +14,7 @@ services:
       - /datavol/openhab-${OH_VERSION}/openhab_addons:/openhab/addons 
       - /datavol/openhab-${OH_VERSION}/openhab_conf:/openhab/conf 
       - /datavol/openhab-${OH_VERSION}/openhab_userdata:/openhab/userdata 
+      - /datavol/openhab-${OH_VERSION}/cont-init.d:/etc/cont-init.d
     environment:
       - OPENHAB_HTTP_PORT=8080
       - OPENHAB_HTTPS_PORT=8443
