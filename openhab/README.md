@@ -5,7 +5,7 @@
 	
 	export HOSTNAME
 	export OH_VERSION="2.4.0"
-	docker-compose -f openhab-compose.yml up -d
+	docker-compose -f openhab-all-compose.yml up -d
 	
 	supported versions
 	2.4.0
