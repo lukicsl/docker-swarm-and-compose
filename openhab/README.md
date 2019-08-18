@@ -4,12 +4,12 @@
 	
 	
 	export HOSTNAME
-	export OH_VERSION="2.4.0"
+	export OH_VERSION="2.5.0.M2"
 	docker-compose -f openhab-all-compose.yml up -d
 	
 	supported versions
 	2.4.0
-	2.5.0.M1
+	2.5.0.M2
 	2.5.0-snapshot
 	
 **sample docker run**
