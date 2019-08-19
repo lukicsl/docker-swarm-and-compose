@@ -10,7 +10,8 @@ services:
     devices:
       - /dev/ttyS0
     environment:
-      - DECONZ_WEB_PORT=80
+      - DECONZ_WEB_PORT=8080
+      - DECONZ_VNC_MODE=1
       - DECONZ_WS_PORT=443
       - DEBUG_INFO=1
       - DEBUG_APS=0
