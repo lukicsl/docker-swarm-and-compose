@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+
+  influxdb:
+    image: influxdb
+    command: "-config /etc/influxdb/influxdb.conf"
+    volumes:
+      - /datavol/influxdb/etc:/etc/influxdb
+      - /datavol/influxdb/meta:/var/lib/influxdb/meta
+      - /datavol/influxdb/data:/var/lib/influxdb/data
