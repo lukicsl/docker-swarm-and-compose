@@ -13,7 +13,7 @@ services:
       - "--latency=10000"
       - "--httpport=8085"
       - "--scanconfig" 
-      - "--mqtthost=mosquitto_mosquitto"
+      - "--mqtthost=127.0.0.1"
       - "--mqttport=1883"
       - "--enablehex"
       - "--device=eBusGW:5000"
