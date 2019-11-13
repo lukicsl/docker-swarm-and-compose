@@ -6,3 +6,5 @@ docker-compose -f  ebusd/docker-compose.yml down
 docker-compose -f  landroid/docker-compose.yml down
 docker-compose -f  openvpn/docker-compose.yml down
 docker-compose -f  openhab/openhab-all-compose.yml down
+docker ps
+ 
