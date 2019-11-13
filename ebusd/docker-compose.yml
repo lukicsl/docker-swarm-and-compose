@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+
+  ebusd:
+    image: lukics/ebusd-3.3:armv7
+    network_mode: host
+    ports:
+      - 8888:8888
+      - 8085:8085
+    command: 
+      - "-f"
+      - "--latency=10000"
+      - "--httpport=8085"
+      - "--scanconfig" 
+      - "--mqtthost=mosquitto_mosquitto"
+      - "--mqttport=1883"
+      - "--enablehex"
+      - "--device=eBusGW:5000"
+      - "--configpath=/etc/ebusd/encon"
+      - "--loglevel=info"
+      - "--pollinterval=1"
+    volumes:
+#      - /datavol/ebusd/encon:/etc/ebusd/encon
+      - /datavol/ebusd/log/:/var/log
