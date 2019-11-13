@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+
+  sbserver:
+    image: lukics/sb-server:armv7
+    ports:
+      - 9000:9000
+      - 9090:9090
+      - 3483:3483
+    hostname: sbserver
+    network_mode: host
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+      - /datavol/sb-server/state:/srv/squeezebox
+      - /datavol/sb-server/music:/srv/music
