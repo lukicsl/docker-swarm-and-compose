@@ -5,6 +5,7 @@ services:
   influxdb:
     image: influxdb
     command: "-config /etc/influxdb/influxdb.conf"
+    network_mode: host
     volumes:
       - /datavol/influxdb/etc:/etc/influxdb
       - /datavol/influxdb/meta:/var/lib/influxdb/meta
