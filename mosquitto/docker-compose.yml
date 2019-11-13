@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+
+  mosquitto:
+    image: eclipse-mosquitto
+    network_mode: host
+    ports:
+      - 1883:1883
+    volumes:
+      - /datavol/mosquitto:/mosquitto/config
