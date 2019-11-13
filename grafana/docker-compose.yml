@@ -9,8 +9,8 @@ services:
       - /datavol/grafana/etc:/etc/grafana
       - /datavol/grafana/lib:/var/lib/grafana
     environment:
-      - GF_SERVER_DOMAIN=${DOMAIN:-localhost}
+#      - GF_SERVER_DOMAIN=${DOMAIN:-localhost}
 #      - GF_SERVER_DOMAIN=vevedock
-      - GF_SERVER_ROOT_URL=%(protocol)s://%(domain)s:%(http_port)s/grafana
+#      - GF_SERVER_ROOT_URL=%(protocol)s://%(domain)s:%(http_port)s/grafana
       - GF_SECURITY_ADMIN_USER=${GRAFANA_USER:-admin}
       - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASS:-admin}
