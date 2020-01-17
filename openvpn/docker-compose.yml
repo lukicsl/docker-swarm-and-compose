@@ -2,6 +2,8 @@ version: '3.3'
 services:
     openvpn:
         privileged: true
+        cap_add:
+            - NET_ADMIN
         restart: always
         image: 'lukics/openvpn:armv7'
         network_mode: host
@@ -9,3 +11,4 @@ services:
           - 1194:1194/udp        
         volumes:
           - /datavol/openvpn/etc:/etc/openvpn
+docker run -v /datavol/openvpn/etc:/etc/openvpn -d -p 1194:1194/udp --cap-add=NET_ADMIN lukics/openvpn:armv7
