@@ -1,11 +1,10 @@
-version: '3.4'
+version: '2'
 services:
     openvpn:
         cap_add:
             - ALL
         restart: always
         image: 'lukics/openvpn:armv7'
-        network_mode: host
         ports:
           - 1194:1194/udp        
         volumes:
