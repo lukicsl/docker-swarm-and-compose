@@ -12,4 +12,4 @@ services:
       - /datavol/influxdb/etc:/etc/influxdb
       - /datavol/influxdb/meta:/var/lib/influxdb/meta
       - /datavol/influxdb/data:/var/lib/influxdb/data
-      - /datavol/influxdb/data:/var/lib/influxdb/wal
+      - /datavol/influxdb/wal:/var/lib/influxdb/wal
