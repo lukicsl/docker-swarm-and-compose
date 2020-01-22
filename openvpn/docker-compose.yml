@@ -1,9 +1,8 @@
 version: '3.4'
 services:
     openvpn:
-        privileged: true
         cap_add:
-            - NET_ADMIN
+            - ALL
         restart: always
         image: 'lukics/openvpn:armv7'
         network_mode: host
