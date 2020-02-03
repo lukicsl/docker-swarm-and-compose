@@ -15,6 +15,8 @@ services:
       - "--scanconfig" 
       - "--mqtthost=127.0.0.1"
       - "--mqttport=1883"
+      - "--mqttuser=openhab"
+      - "--mqttpass=.Techno."
       - "--enablehex"
       - "--device=eBusGW:5000"
       - "--configpath=/etc/ebusd/encon"
