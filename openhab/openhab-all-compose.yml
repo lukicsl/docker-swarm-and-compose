@@ -18,7 +18,7 @@ services:
     environment:
       - OPENHAB_HTTP_PORT=8080
       - OPENHAB_HTTPS_PORT=8443
-      - EXTRA_JAVA_OPTS=-Duser.timezone=Europe/Berlin -Xms400m -Xmx650m 
+      - EXTRA_JAVA_OPTS=-Duser.timezone=Europe/Berlin -Xms400m -Xmx650m -Dpython.path=/openhab/conf/automation/lib/python
       - CRYPTO_POLICY=unlimited
     labels:
       - com.df.notify=true
