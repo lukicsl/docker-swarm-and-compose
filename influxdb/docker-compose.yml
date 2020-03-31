@@ -6,6 +6,7 @@ services:
     image: influxdb
     command: "-config /etc/influxdb/influxdb.conf"
     network_mode: host
+    restart: always
     ports:
       - 8086:8086
     volumes:

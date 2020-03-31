@@ -5,6 +5,7 @@ services:
   grafana:
     image: lukics/grafana:5.4.2
     network_mode: host
+    restart: always
     volumes:
       - /datavol/grafana/etc:/etc/grafana
       - /datavol/grafana/lib:/var/lib/grafana
