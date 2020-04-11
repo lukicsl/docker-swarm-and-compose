@@ -1,8 +1,8 @@
 version: "2"
 services:
   deconz:
-    image: lukics/deconz:head
-#    image: marthoc/deconz:armhf-2.05.75
+#    image: lukics/deconz:head
+    image: marthoc/deconz:armhf-2.05.75
 #    image: marthoc/deconz:latest
     container_name: deconz
     network_mode: host
