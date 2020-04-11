@@ -1,7 +1,7 @@
 version: "2"
 services:
   deconz:
-    image: lukics/deconz:local
+    image: lukics/deconz:head
 #    image: marthoc/deconz:armhf-2.05.71
 #    image: marthoc/deconz:latest
     container_name: deconz
