@@ -1,0 +1,23 @@
+version: "2"
+services:
+  deconz:
+    image: marthoc/deconz:armhf-2.05.75
+    container_name: deconz
+    network_mode: host
+    restart: always
+    volumes:
+      - /datavol/deconz/conf:/root/.local/share/dresden-elektronik/deCONZ
+      - /datavol/deconz/lib/libde_rest_plugin.so:/usr/share/deCONZ/plugins/libde_rest_plugin.so
+    devices:
+      - /dev/ttyAMA0
+    environment:
+      - DECONZ_WEB_PORT=80
+      - DECONZ_VNC_MODE=1
+      - DECONZ_VNC_PASSWORD=.Techno.
+      - DECONZ_WS_PORT=443
+      - DEBUG_INFO=1
+      - DEBUG_APS=0
+      - DEBUG_ZCL=0
+      - DEBUG_ZDP=0
+      - DEBUG_OTAU=0
+
