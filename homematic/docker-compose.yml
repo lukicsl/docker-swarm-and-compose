@@ -8,13 +8,11 @@ services:
     restart: unless-stopped
     stop_grace_period: 30s
     volumes:
-      - ccu_data:/usr/local:rw
+      - /datavol/homematic/ccu_data/:/usr/local:rw
       - /lib/modules:/lib/modules:ro
     ports:
-      - "8080:80"
+      - "8090:80"
       - "2001:2001"
       - "2010:2010"
       - "9292:9292"
       - "8181:8181"
-volumes:
-  ccu_data:
