@@ -18,6 +18,7 @@ services:
     volumes:
       - /datavol/wireguard-server/config:/config
       - /lib/modules:/lib/modules
+      - /usr/src:/usr/src
     ports:
       - 51820:51820/udp
     sysctls:
