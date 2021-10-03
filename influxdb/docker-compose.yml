@@ -3,7 +3,7 @@ version: "3"
 services:
 
   influxdb:
-    image: influxdb
+    image: influxdb:1.8.9
     command: "-config /etc/influxdb/influxdb.conf"
     network_mode: host
     restart: always
