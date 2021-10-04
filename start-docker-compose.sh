@@ -1,4 +1,5 @@
 docker-compose -f  openvpn/docker-compose.yml up -d
+docker-compose -f  wireguard/docker-compose.yml up -d
 docker-compose -f  sbserver/docker-compose.yml up -d
 docker-compose -f  grafana/docker-compose.yml up -d
 docker-compose -f  influxdb/docker-compose.yml up -d
