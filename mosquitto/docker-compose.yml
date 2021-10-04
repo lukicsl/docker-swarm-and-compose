@@ -3,7 +3,7 @@ version: "3"
 services:
 
   mosquitto:
-    image: eclipse-mosquitto
+    image: eclipse-mosquitto:1.6.8
     network_mode: host
     restart: always
     ports:
