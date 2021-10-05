@@ -4,6 +4,7 @@ services:
 
   sbserver:
     image: lukics/sb-server:armv7
+    restart: always
     ports:
       - 9000:9000
       - 9090:9090
