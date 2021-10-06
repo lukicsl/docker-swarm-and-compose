@@ -7,7 +7,7 @@ docker-compose -f  mosquitto/docker-compose.yml up -d
 docker-compose -f  ebusd/docker-compose.yml up -d
 docker-compose -f  landroid/docker-compose.yml up -d
 export HOSTNAME
-export OH_VERSION="2.5.1"
+export OH_VERSION="3.2.0.M3"
 docker-compose -f openhab/openhab-all-compose.yml up -d
 docker ps
  
