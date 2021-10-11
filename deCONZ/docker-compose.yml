@@ -6,7 +6,7 @@ services:
     network_mode: host
     restart: always
     volumes:
-      - /datavol/deconz/conf:/root/.local/share/dresden-elektronik/deCONZ
+      - /datavol/deconz:/root/.local/share/dresden-elektronik/deCONZ
     devices:
       - /dev/ttyAMA0
     environment:
