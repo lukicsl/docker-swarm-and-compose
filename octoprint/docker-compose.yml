@@ -11,7 +11,7 @@ services:
     #  - /dev/ttyACM0:/dev/ttyACM0
     #  - /dev/video0:/dev/video0
     volumes:
-     - octoprint:/octoprint
+     - /datavol/octoprint:/octoprint
     # uncomment the lines below to ensure camera streaming is enabled when
     # you add a video device
     #environment:
