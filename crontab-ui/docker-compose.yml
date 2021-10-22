@@ -1,0 +1,9 @@
+version: '3.0'
+
+services:
+  crontab-ui:
+    build: .
+    image: lukics/crontab-ui:armv7
+    network_mode: bridge
+    ports:
+      - 8000:8000
