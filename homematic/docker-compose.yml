@@ -9,6 +9,7 @@ services:
     stop_grace_period: 30s
     volumes:
       - /datavol/homematic/ccu_data/:/usr/local:rw
+      - /lib/module/:/lib/module:rw
     ports:
       - "8090:80"
       - "8022:22"
