@@ -1,4 +1,4 @@
-version: "3"
+version: "2"
 services:
   raspberrymatic:
     image: ghcr.io/jens-maus/raspberrymatic:latest
