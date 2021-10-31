@@ -60,6 +60,6 @@ services:
       - com.df.port=8080
    
   networks:
-  default:
-    external:
-      oh_internal
+    default:
+      external:
+        oh_internal
