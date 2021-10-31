@@ -2,6 +2,7 @@ version: "3"
 services:
   raspberrymatic:
     image: ghcr.io/jens-maus/raspberrymatic:latest
+    network_mode: host
     container_name: ccu
     hostname: homematic-raspi
     privileged: true
@@ -14,9 +15,3 @@ services:
     ports:
       - "8090:80"
       - "8022:22"
-      - "2000:2000"
-      - "2001:2001"
-      - "8701:8701"
-      - "2010:2010"
-      - "9292:9292"
-      - "8181:8181"
