@@ -5,6 +5,8 @@ services:
     container_name: ccu
     hostname: homematic-raspi
     privileged: true
+    networks:
+      oh_internal
     restart: unless-stopped
     stop_grace_period: 30s
     volumes:
