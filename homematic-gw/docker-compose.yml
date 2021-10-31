@@ -11,10 +11,5 @@ services:
       - /datavol/homematic/ccu_gw_data/:/usr/local:rw
       - /lib/modules/:/lib/modules:rw
     ports:
-      - "8090:80"
-      - "8022:22"
+      - "8091:80"
       - "2000:2000"
-      - "2001:2001"
-      - "2010:2010"
-      - "9292:9292"
-      - "8181:8181"
