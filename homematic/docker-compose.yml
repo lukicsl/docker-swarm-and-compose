@@ -3,7 +3,6 @@ services:
   raspberrymatic:
     image: ghcr.io/jens-maus/raspberrymatic:latest
     container_name: ccu
-    network_mode: host
     hostname: homematic-raspi
     privileged: true
     restart: unless-stopped
