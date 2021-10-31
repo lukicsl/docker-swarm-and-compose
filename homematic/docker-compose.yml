@@ -3,6 +3,10 @@ services:
   raspberrymatic:
     image: ghcr.io/jens-maus/raspberrymatic:latest
     container_name: ccu
+    networks:
+      put_net:
+          ipv4_address: 192.168.3.200
+
     hostname: homematic-raspi
     privileged: true
     restart: unless-stopped
@@ -11,12 +15,13 @@ services:
       - /datavol/homematic/ccu_data/:/usr/local:rw
       - /lib/modules/:/lib/modules:rw
       - /dev/zero:/dev/ttyACM0
-    ports:
-      - "8090:80"
-      - "8022:22"
-      - "2000:2000"
-      - "2001:2001"
-      - "8701:8701"
-      - "2010:2010"
-      - "9292:9292"
-      - "8181:8181"
+networks:
+    put_net:
+        driver: macvlan
+        driver_opts:
+            parent: eth0
+        ipam:
+            config:
+                - 
+                  subnet: 192.168.3.0/24
+                  gateway: 192.168.3.1
