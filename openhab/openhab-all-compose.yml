@@ -5,6 +5,8 @@ services:
   openhab:
     image: openhab/openhab:${OH_VERSION}
     network_mode: host
+    networks:
+      oh_internal
     restart: always
     ports:
       - 9125:9125
