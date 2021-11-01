@@ -5,6 +5,10 @@ services:
   openhab:
     image: openhab/openhab:${OH_VERSION}
     container_name: openhab
+    ports:
+      - 8080:8080
+      - 9125:9125
+      - 9126:9126
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -29,6 +33,8 @@ services:
     image: lukics/frontail:armv7
     command: ["/openhab/userdata/logs/events.log", "/openhab/userdata/logs/openhab.log"]  
     container_name: frontail
+    ports:
+      - 9001:9001
     restart: always
     volumes:
       - /datavol/openhab-${OH_VERSION}/openhab_userdata:/openhab/userdata 
@@ -43,6 +49,9 @@ services:
     image: lukics/samba:armv7
     command: ["-s", "mount-vevedock-${HOSTNAME};/datavol;yes;no;no", "-u", "lukics;.Techno.", "-pn", "-W"]
     container_name: samba
+    ports:
+      - 139:139
+      - 445:445
     restart: always
     volumes:
       - /datavol:/datavol
