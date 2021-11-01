@@ -4,7 +4,7 @@ services:
 
   openhab:
     image: openhab/openhab:${OH_VERSION}
-    network_mode: host
+    container_name: openhab
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -28,7 +28,7 @@ services:
   frontail:
     image: lukics/frontail:armv7
     command: ["/openhab/userdata/logs/events.log", "/openhab/userdata/logs/openhab.log"]  
-    network_mode: host
+    container_name: frontail
     restart: always
     volumes:
       - /datavol/openhab-${OH_VERSION}/openhab_userdata:/openhab/userdata 
@@ -42,7 +42,7 @@ services:
   samba:
     image: lukics/samba:armv7
     command: ["-s", "mount-vevedock-${HOSTNAME};/datavol;yes;no;no", "-u", "lukics;.Techno.", "-pn", "-W"]
-    network_mode: host
+    container_name: samba
     restart: always
     volumes:
       - /datavol:/datavol
