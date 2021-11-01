@@ -9,6 +9,10 @@ services:
     privileged: true
     restart: unless-stopped
     stop_grace_period: 30s
+    networks: 
+      nginx_vlan:
+        ipv4_address: 192.168.3.210
+
     volumes:
       - /datavol/homematic/ccu_data/:/usr/local:rw
       - /lib/modules/:/lib/modules:rw
