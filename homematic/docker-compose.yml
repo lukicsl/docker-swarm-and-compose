@@ -10,18 +10,10 @@ services:
     volumes:
       - /datavol/homematic/ccu_data/:/usr/local:rw
       - /lib/modules/:/lib/modules:rw
-      - /dev/zero:/dev/ttyACM0
     ports:
       - "8090:80"
       - "8022:22"
-      - "2000:2000"
       - "2001:2001"
-      - "8701:8701"
       - "2010:2010"
       - "9292:9292"
       - "8181:8181"
-networks:
-  default:
-    external: true
-    name: oh_bridge
-
