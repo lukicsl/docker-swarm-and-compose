@@ -6,9 +6,6 @@ services:
     image: openhab/openhab:${OH_VERSION}
     network_mode: host
     restart: always
-    ports:
-      - 9125:9125
-      - 9126:9126
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
@@ -33,8 +30,6 @@ services:
     command: ["/openhab/userdata/logs/events.log", "/openhab/userdata/logs/openhab.log"]  
     network_mode: host
     restart: always
-    ports:
-      - 9001:9001
     volumes:
       - /datavol/openhab-${OH_VERSION}/openhab_userdata:/openhab/userdata 
     labels:
@@ -49,9 +44,6 @@ services:
     command: ["-s", "mount-vevedock-${HOSTNAME};/datavol;yes;no;no", "-u", "lukics;.Techno.", "-pn", "-W"]
     network_mode: host
     restart: always
-    ports:
-      - 139:139
-      - 445:445
     volumes:
       - /datavol:/datavol
     labels:
