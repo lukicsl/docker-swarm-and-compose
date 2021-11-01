@@ -9,9 +9,9 @@ services:
     privileged: true
     restart: unless-stopped
     stop_grace_period: 30s
-    networks: 
-      nginx_vlan:
-        ipv4_address: 192.168.3.210
+    networks:
+      oh_macvlan:
+        ipv4_address: 192.168.3.193
 
     volumes:
       - /datavol/homematic/ccu_data/:/usr/local:rw
@@ -32,9 +32,6 @@ services:
       - "8701:8701"
       - "43439:43439/udp"
 networks:
-  nginx_vlan:
-    driver: macvlan
-    ipam:
-      driver: default
-      config:
-        - subnet: 192.168.3.0/24
+  oh_macvlan:
+    external:
+      name: oh_lan
