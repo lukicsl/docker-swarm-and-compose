@@ -3,7 +3,6 @@ version: "3"
 services:
   landroid:
     image: lukics/landroid:armv7
-    network_mode: host
     ports:
       - 4000:3000
     volumes:
