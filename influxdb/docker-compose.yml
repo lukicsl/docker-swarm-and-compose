@@ -7,8 +7,6 @@ services:
     command: "-config /etc/influxdb/influxdb.conf"
     network_mode: host
     restart: always
-    ports:
-      - 8086:8086
     volumes:
       - /datavol/influxdb/etc:/etc/influxdb
       - /datavol/influxdb/meta:/var/lib/influxdb/meta
