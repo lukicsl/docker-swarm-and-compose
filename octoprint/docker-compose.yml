@@ -2,7 +2,7 @@ version: '2.4'
 
 services:
   octoprint:
-    image: octoprint/octoprint
+    image: octoprint/octoprint:latest
     restart: unless-stopped
     ports:
       - 80:80
