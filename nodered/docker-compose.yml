@@ -3,7 +3,6 @@ services:
   deconz:
     image: nodered/node-red
     container_name: node-red
-    network_mode: host
     restart: always
     volumes:
       - /datavol/nodered:/data
