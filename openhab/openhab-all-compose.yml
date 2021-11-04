@@ -34,25 +34,4 @@ services:
     restart: always
     volumes:
       - /datavol/openhab-${OH_VERSION}/openhab_userdata:/openhab/userdata 
-    labels:
-      - com.df.notify=true
-      - com.df.distribute=true
-      - com.df.servicePath=/openhab/
-      - com.df.reqPathSearch=/openhab
-      - com.df.port=8080
-   
-  samba:
-    image: lukics/samba:armv7
-    command: ["-s", "mount-vevedock-${HOSTNAME};/datavol;yes;no;no", "-u", "lukics;.Techno.", "-pn", "-W"]
-    network_mode: host
-    container_name: samba
-    restart: always
-    volumes:
-      - /datavol:/datavol
-    labels:
-      - com.df.notify=true
-      - com.df.distribute=true
-      - com.df.servicePath=/openhab/
-      - com.df.reqPathSearch=/openhab
-      - com.df.port=8080
       
