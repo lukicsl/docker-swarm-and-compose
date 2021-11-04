@@ -5,7 +5,7 @@ services:
     container_name: telegraf
     restart: unless-stopped
     volumes:
-      - /datavol/telegraf/:/etc/telegraf/
+      - /datavol/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
       - /:/hostfs:ro
     environment:
       - HOST_ETC=/hostfs/etc
