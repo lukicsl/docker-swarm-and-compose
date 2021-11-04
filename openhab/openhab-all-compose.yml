@@ -15,6 +15,8 @@ services:
       - /datavol/openhab-${OH_VERSION}/openhab_userdata:/openhab/userdata 
       - /datavol/openhab-${OH_VERSION}/cont-init.d:/etc/cont-init.d
     environment:
+      - USER_ID=9001
+      - GROUP_ID=9001
       - OPENHAB_HTTP_PORT=8080
       - OPENHAB_HTTPS_PORT=8443
       - EXTRA_JAVA_OPTS=-Duser.timezone=Europe/Berlin -Xms400m -Xmx650m 
