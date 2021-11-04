@@ -28,6 +28,7 @@ services:
   
   frontail:
     image: lukics/frontail:armv7
+    user: "9001:9001"
     command: ["/openhab/userdata/logs/events.log", "/openhab/userdata/logs/openhab.log"]  
     network_mode: host
     container_name: frontail
