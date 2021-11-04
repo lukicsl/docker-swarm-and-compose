@@ -10,6 +10,7 @@ services:
     restart: always
     volumes:
       - /datavol:/datavol
+      - /datavol/samba:/etc/samba
     environment:
       - USERID=9001
       - GROUPID=9001
