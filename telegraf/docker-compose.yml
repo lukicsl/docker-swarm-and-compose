@@ -1,7 +1,7 @@
 version: "3"
 services:
   telegraf:
-    image: ghcr.io/jens-maus/raspberrymatic:latest
+    image: telegraf
     container_name: telegraf
     restart: unless-stopped
     volumes:
