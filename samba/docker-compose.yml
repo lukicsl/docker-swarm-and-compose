@@ -1,0 +1,13 @@
+version: "3.2"
+
+services:
+   
+  samba:
+    image: lukics/samba:armv7
+    user: "9001:9001"
+    command: ["-s", "mount-vevedock-${HOSTNAME};/datavol;yes;no;no", "-u", "lukics;.Techno.", "-pn", "-W"]
+    network_mode: host
+    container_name: samba
+    restart: always
+    volumes:
+      - /datavol:/datavol
