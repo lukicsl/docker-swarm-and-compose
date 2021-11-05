@@ -5,7 +5,7 @@ services:
   openhab:
     image: openhab/openhab:${OH_VERSION}
     networks:
-      - ha_cluster_lan
+      ha_cluster_lan
     container_name: openhab
     restart: unless-stopped
     ports:
@@ -34,7 +34,7 @@ services:
   frontail:
     image: lukics/frontail:armv7
     networks:
-      - ha_cluster_lan
+      ha_cluster_lan
     user: "9001:9001"
     command: ["/openhab/userdata/logs/events.log", "/openhab/userdata/logs/openhab.log"]  
     container_name: frontail
@@ -47,7 +47,7 @@ services:
   raspberrymatic:
     image: ghcr.io/jens-maus/raspberrymatic:latest
     networks:
-      - ha_cluster_lan
+      ha_cluster_lan
     container_name: ccu
     privileged: true
     restart: unless-stopped
