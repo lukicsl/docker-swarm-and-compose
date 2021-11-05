@@ -30,9 +30,6 @@ services:
   
   frontail:
     image: lukics/frontail:armv7
-    networks:
-      default:
-        ipv4_address: 10.5.0.3
     user: "9001:9001"
     command: ["/openhab/userdata/logs/events.log", "/openhab/userdata/logs/openhab.log"]  
     container_name: frontail
@@ -44,9 +41,6 @@ services:
       
   raspberrymatic:
     image: ghcr.io/jens-maus/raspberrymatic:latest
-    networks:
-      default:
-        ipv4_address: 10.5.0.4
     container_name: ccu
     privileged: true
     restart: unless-stopped
@@ -58,12 +52,16 @@ services:
       - /dev/zero:/dev/ttyACM0
     ports:
       - "8090:80"
+      - "8022:22"
+      - "2000:2000"
+      - "2001:2001"
+      - "2002:2002"
+      - "2010:2010"
+      - "9292:9292"
+      - "42000:42000"
+      - "42001:42001"
+      - "42010:42010"
+      - "49292:49292"
+      - "8181:8181"
+      - "8701:8701"
       - "43439:43439/udp"
-
-      
-      
-networks:
-  default:
-    external:
-      name : ha_cluster
-  
