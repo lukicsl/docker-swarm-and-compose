@@ -44,7 +44,6 @@ services:
     volumes:
       - /datavol/openhab-${OH_VERSION}/openhab_userdata:/openhab/userdata 
       
-services:
   raspberrymatic:
     image: ghcr.io/jens-maus/raspberrymatic:latest
     networks:
