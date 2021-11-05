@@ -5,6 +5,7 @@ services:
   grafana:
 #    image: lukics/grafana:5.4.2
     image: grafana/grafana:latest
+    user: "9001:9001"
     network_mode: host
     restart: always
     volumes:
