@@ -67,6 +67,6 @@ services:
       
 networks:
   default:
-    external
+    external:
       name : ha_cluster
   
