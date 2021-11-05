@@ -64,4 +64,6 @@ services:
       
 networks:
   ha_cluster_lan:
-    - subnet: 172.23.0.4/16
+    ipam:
+      config:
+        - subnet: 172.23.0.4/16
