@@ -3,7 +3,7 @@ version: "3"
 services:
 
   mosquitto:
-    image: eclipse-mosquitto:1.6.8
+    image: eclipse-mosquitto
     user: "9001:9001"
     network_mode: host
     restart: always
