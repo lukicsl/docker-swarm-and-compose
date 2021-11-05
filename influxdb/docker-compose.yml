@@ -4,6 +4,7 @@ services:
 
   influxdb:
     image: influxdb:1.8.9
+    user: "9001:9001"
     command: "-config /etc/influxdb/influxdb.conf"
     network_mode: host
     restart: always
