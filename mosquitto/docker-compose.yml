@@ -4,6 +4,7 @@ services:
 
   mosquitto:
     image: eclipse-mosquitto:1.6.8
+    user: "9001:9001"
     network_mode: host
     restart: always
     volumes:
