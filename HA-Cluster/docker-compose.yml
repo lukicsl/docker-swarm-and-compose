@@ -59,6 +59,7 @@ services:
       - /dev/zero:/dev/ttyACM0
     ports:
       - "8090:80"
+      - "43439:43439/udp"
 
       
       
