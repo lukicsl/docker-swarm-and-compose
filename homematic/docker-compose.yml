@@ -2,6 +2,7 @@ version: "3"
 services:
   raspberrymatic:
     image: ghcr.io/jens-maus/raspberrymatic:latest
+    user: "9001:9001"
     container_name: ccu
     hostname: homematic-raspi
     privileged: true
