@@ -48,7 +48,6 @@ services:
     image: ghcr.io/jens-maus/raspberrymatic:latest
     networks:
       - ha_cluster_lan
-    user: "9001:9001"
     container_name: ccu
     privileged: true
     restart: unless-stopped
