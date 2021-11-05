@@ -2,7 +2,6 @@ version: "2"
 services:
   deconz:
     image: marthoc/deconz:armhf-2.12.06
-    user: "9001:9001"
     container_name: deconz
     network_mode: host
     restart: always
