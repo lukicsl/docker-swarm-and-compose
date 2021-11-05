@@ -5,7 +5,6 @@ services:
   ebusd:
     image: lukics/ebusd-3.3:armv7
     network_mode: host
-    user: "9001:9001"
     restart: always
     command: 
       - "-f"
