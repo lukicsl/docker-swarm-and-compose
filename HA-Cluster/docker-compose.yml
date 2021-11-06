@@ -2,7 +2,43 @@ version: "3.8"
 
 services:
 
-  openhab:
+  influxdb:
+    image: influxdb:1.8.9
+    user: "9001:9001"
+    command: "-config /etc/influxdb/influxdb.conf"
+    restart: unless-stopped
+    ports:
+      - "8086:8086"
+    volumes:
+      - /datavol/influxdb/etc:/etc/influxdb
+      - /datavol/influxdb/meta:/var/lib/influxdb/meta
+      - /datavol/influxdb/data:/var/lib/influxdb/data
+      - /datavol/influxdb/wal:/var/lib/influxdb/wal
+
+  grafana:
+    image: grafana/grafana:latest
+    user: "9001:9001"
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    volumes:
+      - /datavol/grafana/etc:/etc/grafana
+      - /datavol/grafana/lib:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_USER:-admin}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASS:-admin}
+      - GF_UID=9001
+      - GF_GID=9001
+      
+  mosquitto:
+    image: eclipse-mosquitto
+    restart: unless-stopped
+    ports:
+      - 1883:1883
+    volumes:
+      - /datavol/mosquitto:/mosquitto
+
+openhab:
     image: openhab/openhab:${OH_VERSION}
     network_mode: host
     container_name: openhab
