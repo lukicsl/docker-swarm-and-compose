@@ -69,8 +69,10 @@ services:
   openhab:
     image: openhab/openhab:${OH_VERSION}
     container_name: openhab
-    network_mode: host
+    privileged: true
     restart: unless-stopped
+    ports:
+      - "8080:8080"
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
