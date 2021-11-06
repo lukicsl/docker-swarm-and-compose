@@ -73,8 +73,7 @@ services:
     restart: unless-stopped
     ports:
       - "8080:8080"
-      - "9125:9125"
-      - "9126:9126"
+      - "9125-9225:9125-9225"
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
