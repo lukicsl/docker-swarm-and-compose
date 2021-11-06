@@ -54,7 +54,7 @@ services:
       - "--latency=10000"
       - "--httpport=8085"
       - "--scanconfig" 
-      - "--mqtthost=127.0.0.1"
+      - "--mqtthost=mosquitto"
       - "--mqttport=1883"
       - "--mqttuser=openhab"
       - "--mqttpass=.Techno."
