@@ -42,7 +42,8 @@ services:
       - /datavol/mosquitto:/mosquitto
 
   ebusd:
-    image: lukics/ebusd-3.3:armv7
+#    image: lukics/ebusd-3.3:armv7
+    image: john30/ebusd
     container_name: ebusd
     restart: unless-stopped
     ports:
