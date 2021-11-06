@@ -22,7 +22,7 @@ services:
     user: "9001:9001"
     restart: unless-stopped
     ports:
-      - "3001:3001"
+      - "3000:3000"
     volumes:
       - /datavol/grafana/etc:/etc/grafana
       - /datavol/grafana/lib:/var/lib/grafana
