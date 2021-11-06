@@ -42,7 +42,6 @@ services:
   raspberrymatic:
     image: ghcr.io/jens-maus/raspberrymatic:latest
     container_name: ccu
-    privileged: true
     restart: unless-stopped
     stop_grace_period: 30s
     volumes:
