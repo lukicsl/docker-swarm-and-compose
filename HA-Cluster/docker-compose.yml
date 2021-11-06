@@ -42,6 +42,8 @@ services:
   raspberrymatic:
     image: ghcr.io/jens-maus/raspberrymatic:latest
     container_name: ccu
+    cap_add:
+      - SYS_ADMIN
     restart: unless-stopped
     stop_grace_period: 30s
     volumes:
