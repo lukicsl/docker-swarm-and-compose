@@ -36,8 +36,9 @@ services:
     image: eclipse-mosquitto
     container_name: mosquitto
     restart: unless-stopped
-    ports:
-      - 1883:1883
+    network_mode: host
+#    ports:
+#      - 1883:1883
     volumes:
       - /datavol/mosquitto:/mosquitto
 
