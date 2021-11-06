@@ -41,6 +41,30 @@ services:
     volumes:
       - /datavol/mosquitto:/mosquitto
 
+  ebusd:
+    image: lukics/ebusd-3.3:armv7
+    container_name: ebusd
+    restart: unless-stopped
+    ports:
+      - 8888:8888
+      - 8085:8085
+    command: 
+      - "-f"
+      - "--latency=10000"
+      - "--httpport=8085"
+      - "--scanconfig" 
+      - "--mqtthost=127.0.0.1"
+      - "--mqttport=1883"
+      - "--mqttuser=openhab"
+      - "--mqttpass=.Techno."
+      - "--enablehex"
+      - "--device=eBusGW:5000"
+      - "--configpath=/etc/ebusd/encon"
+      - "--loglevel=info"
+      - "--pollinterval=1"
+    volumes:
+      - /datavol/ebusd/log/:/var/log
+
   openhab:
     image: openhab/openhab:${OH_VERSION}
     container_name: openhab
