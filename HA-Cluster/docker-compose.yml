@@ -43,7 +43,7 @@ services:
 
   ebusd:
 #    image: lukics/ebusd-3.3:armv7
-    image: john30/ebusd
+    image: john30/ebusd:devel-arm32v7
     container_name: ebusd
     restart: unless-stopped
     ports:
