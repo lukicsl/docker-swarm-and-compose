@@ -2,7 +2,7 @@ version: '3.6'
 services:
   portainer:
     container_name: portainer
-    image: portainer/portainer
+    image: portainer/portainer-ce
     restart: unless-stopped
     ports:
     - "9002:9000"
