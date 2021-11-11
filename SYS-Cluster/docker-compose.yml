@@ -1,0 +1,36 @@
+version: '2'
+services:
+  openvpn:
+    cap_add:
+      - ALL
+    restart: always
+    image: 'lukics/openvpn:armv7'
+    ports:
+      - 1194:1194/udp        
+    volumes:
+      - /datavol/openvpn/etc:/etc/openvpn
+
+  wireguard:
+    image: linuxserver/wireguard
+    container_name: wireguard
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Berlin
+      - SERVERURL=lukic.ch
+      - SERVERPORT=51820 #optional
+      - PEERS=2 #optional
+      - PEERDNS=auto #optional
+      - INTERNAL_SUBNET=10.13.13.0 #optional
+    volumes:
+      - /datavol/wireguard-server/config:/config
+      - /lib/modules:/lib/modules
+      - /usr/src:/usr/src
+    ports:
+      - 51820:51820/udp
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+    restart: unless-stopped
