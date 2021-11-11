@@ -153,3 +153,21 @@ services:
     environment:
       - USERID=9001
       - GROUPID=9001
+
+  sbserver:
+    image: lukics/sb-server:armv7
+    restart: always
+    hostname: sbserver
+    network_mode: host
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+      - /datavol/sb-server/state:/srv/squeezebox
+      - /datavol/sb-server/music:/srv/music
+
+  landroid:
+    image: lukics/landroid:armv7
+    user: "9001:9001"
+    ports:
+      - 4000:3000
+    volumes:
+      - /datavol/landroid/config.json:/usr/src/app/config.json
