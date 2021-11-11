@@ -172,7 +172,7 @@ services:
     volumes:
       - /datavol/landroid/config.json:/usr/src/app/config.json
 
- deconz:
+  deconz:
     image: marthoc/deconz:armhf-2.12.06
     container_name: deconz
     network_mode: host
