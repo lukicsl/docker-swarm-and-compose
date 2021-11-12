@@ -146,7 +146,7 @@ services:
       - "raspberrymatic"
     user: "9001:9001"
     container_name: node-red
-    restart: always
+    restart: unless-stopped
     volumes:
       - /datavol/nodered:/data
     ports:
@@ -159,7 +159,7 @@ services:
     command: ["-s", "mount-vevedock-${HOSTNAME:-vevedock-pro};/datavol;yes;no;no", "-u", "lukics;.Techno.", "-pn", "-W"]
     network_mode: host
     container_name: samba
-    restart: always
+    restart: unless-stopped
     volumes:
       - /datavol:/datavol
       - /datavol/samba:/etc/samba
@@ -170,7 +170,7 @@ services:
   sbserver:
     image: lukics/sb-server:armv7
     container_name: sbserver
-    restart: always
+    restart: unless-stopped
     hostname: sbserver
     ports:
       - 9000:9000
@@ -185,6 +185,7 @@ services:
   landroid:
     image: lukics/landroid:armv7
     container_name: landroid
+    restart: unless-stopped
     ports:
       - 4000:3000
     volumes:
@@ -194,7 +195,7 @@ services:
     image: marthoc/deconz:armhf-2.12.06
     container_name: deconz
     network_mode: host
-    restart: always
+    restart: unless-stopped
     volumes:
       - /datavol/deconz:/root/.local/share/dresden-elektronik/deCONZ
     devices:
