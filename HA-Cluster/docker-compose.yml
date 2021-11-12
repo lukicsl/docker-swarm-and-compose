@@ -172,7 +172,11 @@ services:
     container_name: sbserver
     restart: always
     hostname: sbserver
-    network_mode: host
+    ports:
+      - 9000:9000
+      - 9090:9090
+      - 3483:3483/udp
+      - 3483:3483
     volumes:
       - /etc/localtime:/etc/localtime:ro 
       - /datavol/sb-server/state:/srv/squeezebox
