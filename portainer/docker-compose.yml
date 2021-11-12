@@ -3,6 +3,7 @@ services:
   portainer:
     container_name: portainer
     image: portainer/portainer-ce
+    privileged: true
     restart: unless-stopped
     ports:
     - "9002:9000"
