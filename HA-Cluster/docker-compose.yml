@@ -169,7 +169,6 @@ services:
 
   sbserver:
     image: lukics/sb-server:armv7
-    user: "9001:9001"
     container_name: sbserver
     restart: always
     hostname: sbserver
@@ -182,7 +181,6 @@ services:
   landroid:
     image: lukics/landroid:armv7
     container_name: landroid
-    user: "9001:9001"
     ports:
       - 4000:3000
     volumes:
