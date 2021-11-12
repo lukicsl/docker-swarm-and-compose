@@ -48,7 +48,7 @@ services:
     image: lukics/ebusd-3.3:armv7
     depends_on:
       - "mosquitto"
-     container_name: ebusd
+    container_name: ebusd
     restart: unless-stopped
     ports:
       - 8888:8888
