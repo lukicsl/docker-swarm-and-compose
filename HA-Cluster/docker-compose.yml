@@ -74,7 +74,7 @@ services:
     image: openhab/openhab:${OH_VERSION:-3.2.0.M3}
     depends_on:
       - "deconz"
-      - "ccu"
+      - "raspberrymatic"
     container_name: openhab
     network_mode: host
     restart: unless-stopped
