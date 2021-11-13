@@ -1,8 +1,8 @@
 version: '3'
 services:
   portainer:
-    container_name: portainer:latest
-    image: portainer/portainer-ce
+    image: portainer/portainer-ce:latest
+    container_name: portainer
     privileged: true
     restart: unless-stopped
     ports:
