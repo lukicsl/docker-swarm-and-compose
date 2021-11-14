@@ -36,7 +36,6 @@ services:
       
   mosquitto:
     image: eclipse-mosquitto
-    user: "9001:9001"
     container_name: mosquitto
     restart: unless-stopped
     ports:
