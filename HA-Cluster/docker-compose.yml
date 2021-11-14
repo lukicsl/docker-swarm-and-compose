@@ -38,21 +38,18 @@ services:
     image: eclipse-mosquitto
     container_name: mosquitto
     hostname: mosquitto
+    network_mode: host
     restart: unless-stopped
-    ports:
-      - 1883:1883
     volumes:
       - /datavol/mosquitto:/mosquitto
 
   ebusd:
     image: lukics/ebusd-3.3:armv7
+    network_mode: host
     depends_on:
       - "mosquitto"
     container_name: ebusd
     restart: unless-stopped
-    ports:
-      - 8888:8888
-      - 8085:8085
     command: 
       - "-f"
       - "--latency=10000"
