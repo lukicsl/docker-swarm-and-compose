@@ -1,7 +1,7 @@
 version: '3'
 services:
   portainer:
-    image: portainer/portainer-ee
+    image: portainer/portainer-ce:latest
     container_name: portainer
     privileged: true
     restart: unless-stopped
@@ -11,4 +11,5 @@ services:
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - /datavol/portainer/data:/data
+
 
