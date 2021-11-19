@@ -153,17 +153,14 @@ services:
 
   samba:
     image: lukics/samba:armv7
-    command: ["-s", "mount-vevedock-${HOSTNAME:-vevedock-pro};/datavol;yes;no;no", "-u", "lukics;.Techno.;9001;9001", "-pn", "-W"]
+    command: ["-s", "mount-vevedock-${HOSTNAME:-vevedock-pro};/datavol;yes;no;no", "-u", "lukics;.Techno.;1001;1001", "-pn", "-W"]
     network_mode: host
     container_name: samba
     restart: unless-stopped
     volumes:
       - /datavol:/datavol
       - /datavol/samba:/etc/samba
-    environment:
-      - USERID=9001
-      - GROUPID=9001
-
+ 
   sbserver:
     image: lukics/sb-server:armv7
     container_name: sbserver
