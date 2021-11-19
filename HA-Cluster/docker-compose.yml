@@ -160,7 +160,10 @@ services:
     volumes:
       - /datavol:/datavol
       - /datavol/samba:/etc/samba
- 
+    environment:
+      - USERID=9001
+      - GROUPID=9001
+
   sbserver:
     image: lukics/sb-server:armv7
     container_name: sbserver
