@@ -4,14 +4,10 @@ services:
    
   samba:
     image: lukics/samba:armv7
-    command: ["-s", "mount-vevedock-${HOSTNAME};/datavol;yes;no;no", "-u", "lukics;.Techno.", "-pn", "-W"]
+    command: ["-s", "mount-vevedock-${HOSTNAME};/datavol;yes;no;no", "-u", "haut;.Techno.", "-pn", "-W"]
     network_mode: host
     container_name: samba
     restart: always
     volumes:
       - /datavol:/datavol
       - /datavol/samba:/etc/samba
-    environment:
-      - USERID=9001
-      - GROUPID=9001
-
