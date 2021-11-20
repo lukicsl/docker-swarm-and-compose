@@ -11,3 +11,6 @@ services:
     volumes:
       - /datavol:/datavol
       - /datavol/samba:/etc/samba
+      - /var/lib/samba:/var/lib/samba
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/shadow:/etc/shadow:ro
