@@ -153,7 +153,7 @@ services:
 
   samba:
     image: lukics/samba:armv7
-    command: ["-s", "mount-vevedock-${HOSTNAME:-vevedock-pro};/datavol;yes;no;no", "-u", "lukics;.Techno.", "-pn", "-W"]
+    command: ["-s", "mount-vevedock-${HOSTNAME:-vevedock-pro};/datavol;yes;no;no", "-u", "haut;.Techno.", "-pn", "-W"]
     network_mode: host
     container_name: samba
     restart: unless-stopped
