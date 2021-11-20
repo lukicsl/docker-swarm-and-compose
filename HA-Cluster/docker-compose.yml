@@ -157,7 +157,7 @@ services:
     restart: unless-stopped
     hostname: sbserver
     ports:
-      - 9000:9000
+      - 9010:9000
   #    - 9090:9090
       - 3483:3483/udp
       - 3483:3483
