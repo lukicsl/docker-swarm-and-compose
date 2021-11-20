@@ -147,8 +147,8 @@ services:
     volumes:
       - /datavol/nodered:/data
     ports:
-  #    - 2048:2048
-  #    - 2049:2049
+      - 2048:2048
+      - 2049:2049
       - 1880:1880
 
   sbserver:
@@ -158,7 +158,7 @@ services:
     hostname: sbserver
     ports:
       - 9000:9000
-  #    - 9090:9090
+      - 9090:9090
       - 3483:3483/udp
       - 3483:3483
     volumes:
