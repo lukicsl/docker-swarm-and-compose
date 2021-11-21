@@ -147,8 +147,8 @@ services:
     volumes:
       - /datavol/nodered:/data
     ports:
-  #    - 2048:2048
-  #    - 2049:2049
+      - 2048:2048
+      - 2049:2049
       - 1880:1880
 
   sbserver:
