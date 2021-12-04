@@ -4,9 +4,14 @@ services:
 
   sbserver:
     image: lukics/sb-server:armv7
-    restart: always
+    container_name: sbserver
+    restart: unless-stopped
     hostname: sbserver
-    network_mode: host
+    ports:
+      - 9000:9000
+      - 9090:9090
+      - 3483:3483/udp
+      - 3483:3483
     volumes:
       - /etc/localtime:/etc/localtime:ro 
       - /datavol/sb-server/state:/srv/squeezebox
