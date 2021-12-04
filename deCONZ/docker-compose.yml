@@ -7,8 +7,9 @@ services:
     restart: always
     volumes:
       - /datavol/deconz:/root/.local/share/dresden-elektronik/deCONZ
-    devices:
-      - /dev/ttyACM0
+      - /dev/zero:/dev/ttyACM0
+#    devices:
+#      - /dev/ttyACM0
     environment:
       - DECONZ_WEB_PORT=80
       - DECONZ_VNC_MODE=1
