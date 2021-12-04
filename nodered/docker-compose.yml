@@ -4,7 +4,6 @@ services:
     image: nodered/node-red
     container_name: node-red
     restart: always
-    user: "9001:9001"
     volumes:
       - /datavol/nodered:/data
     ports:
