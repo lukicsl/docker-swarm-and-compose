@@ -143,13 +143,10 @@ services:
       - "raspberrymatic"
     user: "9001:9001"
     container_name: node-red
+    network_mode: host
     restart: unless-stopped
     volumes:
       - /datavol/nodered:/data
-    ports:
-      - 2048:2048
-      - 2049:2049
-      - 1880:1880
 
   sbserver:
     image: lukics/sb-server:armv7
