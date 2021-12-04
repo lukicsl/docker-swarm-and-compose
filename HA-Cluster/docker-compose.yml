@@ -141,7 +141,6 @@ services:
       - "deconz"
       - "openhab"
       - "raspberrymatic"
-    user: "9001:9001"
     container_name: node-red
     network_mode: host
     restart: unless-stopped
