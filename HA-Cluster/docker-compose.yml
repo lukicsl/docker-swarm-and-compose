@@ -5,10 +5,11 @@ services:
   influxdb:
     image: influxdb:1.8.9
     container_name: influxdb
-    network_mode: host
     user: "9001:9001"
     command: "-config /etc/influxdb/influxdb.conf"
     restart: unless-stopped
+    ports:
+      - "8086:8086"
     volumes:
       - /datavol/influxdb/etc:/etc/influxdb
       - /datavol/influxdb/meta:/var/lib/influxdb/meta
@@ -20,9 +21,10 @@ services:
     depends_on:
       - "influxdb"
     container_name: grafana
-    network_mode: host
     user: "9001:9001"
     restart: unless-stopped
+    ports:
+      - "3000:3000"
     volumes:
       - /datavol/grafana/etc:/etc/grafana
       - /datavol/grafana/lib:/var/lib/grafana
@@ -97,10 +99,11 @@ services:
   frontail:
     image: lukics/frontail:armv7
     container_name: frontail
-    network_mode: host
     user: "9001:9001"
     command: ["/openhab/userdata/logs/events.log", "/openhab/userdata/logs/openhab.log"]  
     restart: unless-stopped
+    ports:
+      - "9001:9001"
     volumes:
       - /datavol/openhab-${OH_VERSION:-3.2.0.M3}/openhab_userdata:/openhab/userdata 
       
@@ -140,17 +143,24 @@ services:
       - "raspberrymatic"
     user: "9001:9001"
     container_name: node-red
-    network_mode: host
     restart: unless-stopped
     volumes:
       - /datavol/nodered:/data
+    ports:
+      - 2048:2048
+      - 2049:2049
+      - 1880:1880
 
   sbserver:
     image: lukics/sb-server:armv7
     container_name: sbserver
-    network_mode: host
     restart: unless-stopped
     hostname: sbserver
+    ports:
+      - 9000:9000
+      - 9090:9090
+      - 3483:3483/udp
+      - 3483:3483
     volumes:
       - /etc/localtime:/etc/localtime:ro 
       - /datavol/sb-server/state:/srv/squeezebox
